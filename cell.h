@@ -5,7 +5,8 @@
 #include "Renderable.h"
 
 class Cell : public Renderable{
-
+      public:
+          Cell();
 };
 
 
