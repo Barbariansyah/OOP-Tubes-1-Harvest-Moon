@@ -9,6 +9,7 @@ using namespace std;
 
 class Well : public Facility{
     public:
+        Well();    
         string Render();
    
 };
