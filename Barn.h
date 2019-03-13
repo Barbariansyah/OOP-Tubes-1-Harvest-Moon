@@ -9,6 +9,7 @@ using namespace std;
 
 class Barn : public Barn{
     public:
+        Barn();
         string Render();
    
 };
