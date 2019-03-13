@@ -12,6 +12,7 @@ class Truck : public Facility{
         int AwayCounter = 5;
     
     public:
+        Truck();
         string Render();
    
 };
