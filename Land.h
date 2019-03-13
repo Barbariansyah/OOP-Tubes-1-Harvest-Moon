@@ -8,6 +8,7 @@ using namespace std;
 
 class Land : public Cell{
     protected:
+        Land();
         bool grass;
 };
 
