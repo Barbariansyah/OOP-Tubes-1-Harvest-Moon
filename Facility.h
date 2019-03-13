@@ -7,7 +7,8 @@
 using namespace std;
 
 class Facility : public Cell, public Entity{
-   
+   public:
+      Facility();
 };
 
 #endif
