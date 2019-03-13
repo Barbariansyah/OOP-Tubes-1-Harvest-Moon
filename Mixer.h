@@ -9,6 +9,7 @@ using namespace std;
 
 class Mixer : public Facility{
     public:
+        Mixer();
         string Render();
    
 };
