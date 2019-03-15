@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class Barn : public Barn{
+class Barn : public Land{
     public:
         Barn();
         string Render();

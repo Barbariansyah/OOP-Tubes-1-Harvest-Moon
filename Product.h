@@ -107,4 +107,4 @@ public:
   void Print();
 }
 
-#define
+#endif
