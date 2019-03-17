@@ -13,9 +13,6 @@ class EggPFA : public LiveEntity {
 
         /* Implementasi fungsi move() */
         void Move();
-
-        /* Implementasi fungsi eat() */
-        void Eat();
         
 };
 
