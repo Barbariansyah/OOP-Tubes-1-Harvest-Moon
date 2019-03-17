@@ -16,7 +16,7 @@ class FarmAnimal : public LiveEntity {
     public :
 
         /* Fungsi eat(), digunakan untuk memakan GRASS */
-        virtual void Eat();
+        void Eat();
 
         /* Fungsi sounds(), mengeluarkan suara tiap hewan */
         virtual void Sounds() = 0;

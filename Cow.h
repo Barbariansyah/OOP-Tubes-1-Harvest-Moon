@@ -18,12 +18,6 @@ class Cow : public MilkPFA , public MeatPFA {
         /* Implementasi fungsi render() */
         string Render();
 
-        /* Implementasi fungsi move() */
-        void Move();
-
-        /* Implementasi fungsi eat() */
-        void Eat();
-
         /* Implementasi fungsi sounds() */
         void Sounds();
 

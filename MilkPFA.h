@@ -10,6 +10,9 @@ class MilkPFA : public LiveEntity {
     protected :
 
     public :
+
+        /* Implementasi fungsi move() */
+        void Move();
         
 };
 

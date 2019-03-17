@@ -10,6 +10,12 @@ class EggPFA : public LiveEntity {
     protected :
 
     public :
+
+        /* Implementasi fungsi move() */
+        void Move();
+
+        /* Implementasi fungsi eat() */
+        void Eat();
         
 };
 
