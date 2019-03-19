@@ -3,9 +3,9 @@
 #ifndef MILKPFA_H_
 #define MILKPFA_H_
 
-#include "LiveEntity.h"
+#include "FarmAnimal.h"
 
-class MilkPFA : public LiveEntity {
+class MilkPFA : public FarmAnimal {
 
     protected :
 

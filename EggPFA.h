@@ -3,9 +3,9 @@
 #ifndef EGGPFA_H_
 #define EGGPFA_H_
 
-#include "LiveEntity.h"
+#include "FarmAnimal.h"
 
-class EggPFA : public LiveEntity {
+class EggPFA : public FarmAnimal {
 
     protected :
 

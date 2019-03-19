@@ -3,9 +3,9 @@
 #ifndef MEATPFA_H_
 #define MEATPFA_H_
 
-#include "LiveEntity.h"
+#include "FarmAnimal.h"
 
-class MeatPFA : public LiveEntity {
+class MeatPFA : public FarmAnimal {
 
     protected :
 

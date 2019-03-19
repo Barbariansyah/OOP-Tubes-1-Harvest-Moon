@@ -17,7 +17,7 @@ class Player : public LiveEntity {
         string name;
         int water_container;
         double money;
-        // vector<Product> inventory;
+        vector<Product> inventory;
 
     public :
 
