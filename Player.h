@@ -1,19 +1,19 @@
+#ifndef PLAYER_H_
+#define PLAYER_H_
+
+#include "LiveEntity.h"
+#include "Product.h"
+#include <string>
+#include <vector>
+
+using namespace std;
+
 //! Kelas Player
 /*!
    Merupakan Kelas untuk pengguna dalam permainan ini
    Memiliki semua atribut dan method yang dimiliki oleh pengguna, sesuai spesifikasi
    Berisi konstruktor default dan user defined, setter dan getter, serta method-method untuk berinteraksi pada game
 */
-
-#ifndef PLAYER_H_
-#define PLAYER_H_
-
-#include "LiveEntity.h"
-#include <string>
-#include <vector>
-
-using namespace std;
-
 class Player : public LiveEntity {
 
     private :
@@ -35,33 +35,48 @@ class Player : public LiveEntity {
         //! Konstruktor user defined Player()
         /*!
         Digunakan untuk membuat objek dari kelas ini, sesuai dengan parameter dari pengguna
-        TBD!
+        @param _name nama player
+        @param _water_container container air awal
+        @param _money nilai awal uang
         */
         Player(string _name , int _water_container , double _money);
 
-        //! Fungsi setter
+        //! Fungsi setter nama
         /*!
-        Digunakan untuk mengubah atribut pada kelas ini oleh objek lain
-        TBD!
+        @param _name nama baru
         */
         void SetName(string _name);
+        //! Fungsi setter watercontainer
+        /*!
+        @param _waterContainer isi container air
+        */
         void SetWaterContainer(int _waterContainer);
+        //! Fungsi setter money
+        /*!
+        @param _money jumlah uang baru
+        */
         void SetMoney(double _money);
 
-        //! Fungsi getter
+        //! Fungsi getter nama
         /*!
-        Digunakan untuk mendapatkan atribut pada kelas ini oleh objek lain
-        TBD!
+        @return nama player
         */
         string GetName();
+        //! Fungsi getter isi water container
+        /*!
+        @return isi water container
+        */
         int GetWaterContainer();
+        //! Fungsi getter money
+        /*!
+        @return money
+        */
         double GetMoney();
 
-        //! Implementasi dari fungsi Render()
-        /*!
-        Digunakan untuk menampilkan player pada Map
-        TBD!
-        */
+        /**
+         * Implementasi fungsi render dari kelas renderer.
+         * @return karakter serta kode warna yang sesuai dengan Player.
+         */
         string Render();
         
         //! Implementasi dari fungsi Move()

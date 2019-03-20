@@ -4,15 +4,32 @@
 #include <iostream>
 using namespace std;
 
+/**
+ * Abstract base class Product.
+ * Memiliki atribut price yang dimiliki semua product turunan
+ */
 class Product{
-//Abstract base class for products
-protected:
-  double Price;
-public:
-  Product(double _Price);
-  double getPrice() const;
-
-  virtual void Print() = 0;
+  protected:
+    double price; /*<! Atribut harga dari sebuah produk*/
+    string name;
+  public:
+    /**
+     * Konstruktor product.
+     * @param _price harga yang ditentukan
+     * @param _name nama produk
+     */
+    Product(double _price, string _name);
+    /**
+     * Getter harga.
+     * Mengembalikan nilai harga dari suatu produk
+     * @return harga produk
+     */
+    double getPrice() const;
+    /**
+     * Pure virtual method Print.
+     * Method ini mencetak produk yang tampilannya akan berbeda antara side product dengan farm product 
+     */
+    virtual void Print() = 0;
 };
 
 #endif

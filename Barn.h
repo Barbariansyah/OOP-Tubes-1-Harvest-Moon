@@ -6,12 +6,21 @@
 #include <string>
 
 using namespace std;
-
+/**
+ * Kelas Barn, kelas riil turunan dari kelas Land.
+ * Digunakan sebagai tempat farm animal penghasil daging
+ */
 class Barn : public Land{
     public:
+        /**
+         * Konstruktor Barn.
+         */
         Barn();
-        string Render();
-   
+        /**
+         * Implementasi fungsi render dari kelas renderer.
+         * @return karakter serta kode warna yang sesuai dengan Barn.
+         */
+        string Render(); 
 };
 
 #endif

@@ -1,15 +1,14 @@
+#ifndef FARM_ANIMAL_H_
+#define FARM_ANIMAL_H_
+
+#include "LiveEntity.h"
+
 //! Kelas Farm Animal
 /*!
     Sebuah Abstract Base Class(ABC) sebagai representasi binatang yang ada pada permainan
     Akan diinherit dengan semua animal yang ada di permainan
     Berisi fungsi Eat(), pure virtual Sounds(), GetHungerCountdown(), dan IsProductAvailable()
 */
-
-#ifndef FARM_ANIMAL_H_
-#define FARM_ANIMAL_H_
-
-#include "LiveEntity.h"
-
 class FarmAnimal : public LiveEntity {
 
     protected :
@@ -37,7 +36,7 @@ class FarmAnimal : public LiveEntity {
         //! Fungsi Getter GetHungerCountdown()
         /*!
         Getter untuk mendapatkan countdown lapar animal
-        TBD!
+        @return jumlah tick kelaparan, positif berarti kenyang, nol lapar, -5 mati
         */
         int GetHungerCountdown();
 

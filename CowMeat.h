@@ -2,11 +2,16 @@
 #define COW_MEAT_H
 
 #include "FarmProduct.h"
-
+/**
+ * Kelas CowMeat, kelas riil turunan farm product.
+ * Didapatkan dari aksi kill terhadap farm animal cow
+ */
 class CowMeat : public FarmProduct{
-public:
-  CowMeat();//Contoh implementasi CowMeat():Product(150);
-  void Print();
+  public:
+    /**
+     * Konstruktor CowMeat.
+     */
+    CowMeat();
 };
 
 #endif

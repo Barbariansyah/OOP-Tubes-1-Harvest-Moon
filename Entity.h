@@ -1,14 +1,13 @@
-//! Kelas Entity
-/*!
-    Merupakan Abstract Base Class untuk merepresentasikan entitas yang ada pada permainan ini
-    memiliki atribut posisi X dan posisi Y
-*/
-
 #ifndef ENTITY_H_
 #define ENTITY_H_
 
 #include "Renderable.h"
 
+//! Kelas Entity
+/*!
+    Merupakan Abstract Base Class untuk merepresentasikan entitas yang ada pada permainan ini
+    memiliki atribut posisi X dan posisi Y
+*/
 class Entity : public Renderable {
 
     protected :
@@ -21,14 +20,14 @@ class Entity : public Renderable {
         //! Pure virtual getter x
         /*!
         Digunakan untuk mendapatkan atribut pos_x oleh objek lain
-        TBD!
+        @return X;
         */
         virtual int GetX();
 
         //! Pure virtual getter y
         /*!
         Digunakan untuk mendapatkan atribut pos_y oleh objek lain
-        TBD!
+        @return Y;
         */
         virtual int GetY();
 

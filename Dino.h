@@ -1,15 +1,14 @@
-//! Kelas Dino
-/*!
-  Sebuah kelas riil dari FarmAnimal, yaitu kelas dino
-  Berisi sebuah konstruktor, implementasi fungsi Render(), dan implementasi fungsi Sounds()
-*/
-
 #ifndef DINO_H_
 #define DINO_H_
 
 #include "EggPFA.h"
 #include "MeatPFA.h"
 
+//! Kelas Dino
+/*!
+  Sebuah kelas riil dari FarmAnimal, yaitu kelas dino
+  Berisi sebuah konstruktor, implementasi fungsi Render(), dan implementasi fungsi Sounds()
+*/
 class Dino : public EggPFA , public MeatPFA {
 
     private :
@@ -25,7 +24,7 @@ class Dino : public EggPFA , public MeatPFA {
         //! Implementasi dari fungsi Render()
         /*!
         Digunakan untuk menampilkan Dino pada Map
-        TBD!
+        @return karakter serta kode warna yang sesuai dengan Dino.
         */
         string Render();
 

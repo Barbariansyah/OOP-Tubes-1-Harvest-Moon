@@ -2,11 +2,17 @@
 #define GOAT_CHEESE_H
 
 #include "SideProduct.h"
-
+/**
+ * Kelas GoatCheese, kelas riil turunan side product.
+ * Terbuat dari dua goat milk
+ */
 class GoatCheese : public SideProduct{
-public:
-  GoatCheese();
-  void Print();
+  public:
+    /**
+     * Konstruktor GoatCheese.
+     * Melakukan pemanggilan validasi resep sebelum pembuatan objek
+     */
+    GoatCheese();
 };
 
 #endif

@@ -1,15 +1,14 @@
-//! Kelas Cow
-/*!
-  Sebuah kelas riil dari FarmAnimal, yaitu kelas cow
-  Berisi sebuah konstruktor, implementasi fungsi Render(), dan implementasi fungsi Sounds()
-*/
-
 #ifndef COW_H_
 #define COW_H_
 
 #include "MilkPFA.h"
 #include "MeatPFA.h"
 
+//! Kelas Cow
+/*!
+  Sebuah kelas riil dari FarmAnimal, yaitu kelas cow
+  Berisi sebuah konstruktor, implementasi fungsi Render(), dan implementasi fungsi Sounds()
+*/
 class Cow : public MilkPFA , public MeatPFA {
 
     private :
@@ -25,7 +24,7 @@ class Cow : public MilkPFA , public MeatPFA {
         //! Implementasi dari fungsi Render()
         /*!
         Digunakan untuk menampilkan cow pada Map
-        TBD!
+        @return karakter serta kode warna yang sesuai dengan Cow.
         */
         string Render();
 

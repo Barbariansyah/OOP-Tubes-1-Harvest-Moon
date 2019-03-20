@@ -2,11 +2,16 @@
 #define RABBIT_MEAT_H
 
 #include "FarmProduct.h"
-
+/**
+ * Kelas RabbitMeat, kelas riil turunan farm product.
+ * Didapatkan dari aksi kill terhadap farm animal rabbit
+ */
 class RabbitMeat : public FarmProduct{
-public:
-  RabbitMeat();
-  void Print();
+  public:
+    /**
+     * Konstruktor RabbitMeat.
+     */
+    RabbitMeat();
 };
 
 #endif

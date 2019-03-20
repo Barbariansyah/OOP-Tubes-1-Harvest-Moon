@@ -1,3 +1,8 @@
+#ifndef LIVE_ENTITY_H_
+#define LIVE_ENTITY_H_
+
+#include "Entity.h"
+
 //! Kelas LiveEntity
 /*!
     Kelas LiveEntity, merupakan Abstract Base Class (ABC)
@@ -5,12 +10,6 @@
    
    Memiliki pure virtual method yaitu Move() 
 */
-
-#ifndef LIVE_ENTITY_H_
-#define LIVE_ENTITY_H_
-
-#include "Entity.h"
-
 class LiveEntity : public Entity {
         
         protected :
@@ -20,7 +19,8 @@ class LiveEntity : public Entity {
         //! Pure virtual Move()
         /*!
         Digunakan untuk melakukan perpindahan pada map 
-        Akan diimplementasikan pada kelas yang meng inherit kelas ini
+        Akan diimplementasikan sebagai pergerakan random farm animal
+        dan pergerakan sesuai input pada player
         TBD!
         */
         virtual void Move() = 0;

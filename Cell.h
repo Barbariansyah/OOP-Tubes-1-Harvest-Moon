@@ -3,10 +3,15 @@
 
 #include <iostream>
 #include "Renderable.h"
-
+/**
+ * Abstract Base Class Cell, turunan dari Kelas Renderable.
+ */
 class Cell : public Renderable{
-      public:
-          Cell();
+    public:
+        /**
+         * Konstruktor Cell.
+         */
+        Cell();
 };
 
 #endif
