@@ -41,13 +41,6 @@ class FarmAnimal : public LiveEntity {
         */
         int GetHungerCountdown();
 
-        //! Fungsi Getter IsProductAvailable()
-        /*!
-        Getter untuk mendapatkan apakah animal memiliki product yang tersedia
-        TBD!
-        */
-        bool IsProductAvailable();
-
 };
 
 #endif
