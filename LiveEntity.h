@@ -1,7 +1,10 @@
-/* Kelas LiveEntity, merupakan Abstract Base Class (ABC)
-   untuk kelas entitas yang merupakan makhluk hidup.
+//! Kelas LiveEntity
+/*!
+    Kelas LiveEntity, merupakan Abstract Base Class (ABC)
+    untuk kelas entitas yang merupakan makhluk hidup.
    
-   Memiliki pure virtual method yaitu Move() */
+   Memiliki pure virtual method yaitu Move() 
+*/
 
 #ifndef LIVE_ENTITY_H_
 #define LIVE_ENTITY_H_
@@ -14,7 +17,13 @@ class LiveEntity : public Entity {
 
         public :
 
-            virtual void Move() = 0;
+        //! Pure virtual Move()
+        /*!
+        Digunakan untuk melakukan perpindahan pada map 
+        Akan diimplementasikan pada kelas yang meng inherit kelas ini
+        TBD!
+        */
+        virtual void Move() = 0;
 
     };
 
