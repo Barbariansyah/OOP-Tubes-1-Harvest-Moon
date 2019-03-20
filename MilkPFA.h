@@ -1,4 +1,9 @@
-/* Kelas MilkPFA, kelas untuk hewan yang menghasilkan susu */
+//! Kelas MilkPFA
+/*!
+    Kelas Milk Producing Farm Animal, akan di inherit dengan
+    kelas hewan-hewan penghasil susu. 
+    Berisi implementasi fungsi Move()
+*/
 
 #ifndef MILKPFA_H_
 #define MILKPFA_H_
@@ -11,7 +16,11 @@ class MilkPFA : public FarmAnimal {
 
     public :
 
-        /* Implementasi fungsi move() */
+        //! Implementasi dari fungsi Render()
+        /*!
+        Digunakan untuk menampilkan berpindah pada map
+        TBD!
+        */
         void Move();
         
 };

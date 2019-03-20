@@ -1,4 +1,9 @@
-/* Kelas EggPFA, kelas untuk hewan yang menghasilkan telur */
+//! Kelas EggPFA
+/*!
+    Kelas Egg Producing Farm Animal, akan di inherit dengan
+    kelas hewan-hewan penghasil telur. 
+    Berisi implementasi fungsi Move()
+*/
 
 #ifndef EGGPFA_H_
 #define EGGPFA_H_
@@ -11,7 +16,11 @@ class EggPFA : public FarmAnimal {
 
     public :
 
-        /* Implementasi fungsi move() */
+        //! Implementasi dari fungsi Render()
+        /*!
+        Digunakan untuk menampilkan berpindah pada map
+        TBD!
+        */
         void Move();
         
 };

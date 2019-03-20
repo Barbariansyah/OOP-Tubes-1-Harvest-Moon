@@ -1,4 +1,9 @@
-/* Kelas MeatPFA, kelas untuk hewan yang menghasilkan daging */
+//! Kelas MeatPFA
+/*!
+    Kelas Meat Producing Farm Animal, akan di inherit dengan
+    kelas hewan-hewan penghasil daging. 
+    Berisi implementasi fungsi Move()
+*/
 
 #ifndef MEATPFA_H_
 #define MEATPFA_H_
@@ -11,7 +16,11 @@ class MeatPFA : public FarmAnimal {
 
     public :
 
-        /* Implementasi fungsi move() */
+        //! Implementasi dari fungsi Render()
+        /*!
+        Digunakan untuk menampilkan berpindah pada map
+        TBD!
+        */
         void Move();
         
 };

@@ -1,4 +1,8 @@
-/* Kelas Bebek */
+//! Kelas Duck
+/*!
+  Sebuah kelas riil dari FarmAnimal, yaitu kelas duck
+  Berisi sebuah konstruktor, implementasi fungsi Render(), dan implementasi fungsi Sounds()
+*/
 
 #ifndef DUCK_H_
 #define DUCK_H_
@@ -12,13 +16,24 @@ class Duck : public EggPFA , public MeatPFA {
 
     public :
 
-        /* Konstruktor */
+        //! Konstruktor dari kelas duck
+        /*!
+        TBD!
+        */
         Duck();
 
-        /* Implementasi fungsi render() */
+        //! Implementasi dari fungsi Render()
+        /*!
+        Digunakan untuk menampilkan duck pada Map
+        TBD!
+        */
         string Render();
 
-        /* Implementasi fungsi sounds() */
+        //! Implementasi dari fungsi Sounds()
+        /*!
+        Digunakan untuk mengeluarkan suara duck
+        TBD!
+        */
         void Sounds();
 
 };

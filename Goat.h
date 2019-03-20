@@ -1,4 +1,8 @@
-/* Kelas Kambing */
+//! Kelas Goat
+/*!
+  Sebuah kelas riil dari FarmAnimal, yaitu kelas goat
+  Berisi sebuah konstruktor, implementasi fungsi Render(), dan implementasi fungsi Sounds()
+*/
 
 #ifndef GOAT_H_
 #define GOAT_H_
@@ -12,13 +16,24 @@ class Goat : public MilkPFA , public MeatPFA {
 
     public :
 
-        /* Konstruktor */
+        //! Konstruktor dari kelas Goat
+        /*!
+        TBD!
+        */
         Goat();
 
-        /* Implementasi fungsi render() */
+        //! Implementasi dari fungsi Render()
+        /*!
+        Digunakan untuk menampilkan goat pada Map
+        TBD!
+        */
         string Render();
 
-        /* Implementasi fungsi sounds() */
+        //! Implementasi dari fungsi Sounds()
+        /*!
+        Digunakan untuk mengeluarkan suara goat
+        TBD!
+        */
         void Sounds();
 
 };

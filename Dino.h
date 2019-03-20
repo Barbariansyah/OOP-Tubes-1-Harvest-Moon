@@ -1,4 +1,8 @@
-/* Kelas Dino */
+//! Kelas Dino
+/*!
+  Sebuah kelas riil dari FarmAnimal, yaitu kelas dino
+  Berisi sebuah konstruktor, implementasi fungsi Render(), dan implementasi fungsi Sounds()
+*/
 
 #ifndef DINO_H_
 #define DINO_H_
@@ -12,13 +16,24 @@ class Dino : public EggPFA , public MeatPFA {
 
     public :
 
-        /* Konstruktor */
+        //! Konstruktor dari kelas Dino
+        /*!
+        TBD!
+        */
         Dino();
 
-        /* Implementasi fungsi render() */
+        //! Implementasi dari fungsi Render()
+        /*!
+        Digunakan untuk menampilkan Dino pada Map
+        TBD!
+        */
         string Render();
 
-        /* Implementasi fungsi sounds() */
+        //! Implementasi dari fungsi Sounds()
+        /*!
+        Digunakan untuk mengeluarkan suara dino
+        TBD!
+        */
         void Sounds();
 
 };
