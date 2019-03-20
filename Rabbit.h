@@ -1,9 +1,12 @@
-/* Kelas Kelinci */
+//! Kelas Cow
+/*!
+  Sebuah kelas riil dari FarmAnimal, yaitu kelas cow
+  Berisi sebuah konstruktor, implementasi fungsi Render(), dan implementasi fungsi Sounds()
+*/
 
 #ifndef RABBIT_H_
 #define RABBIT_H_
 
-#include "MilkPFA.h"
 #include "MeatPFA.h"
 
 class Rabbit : public MeatPFA {
@@ -12,13 +15,24 @@ class Rabbit : public MeatPFA {
 
     public :
 
-        /* Konstruktor */
+        //! Konstruktor dari kelas cow
+        /*!
+        TBD!
+        */
         Rabbit();
 
-        /* Implementasi fungsi render() */
+        //! Implementasi dari fungsi Render()
+        /*!
+        Digunakan untuk menampilkan cow pada Map
+        TBD!
+        */
         string Render();
 
-        /* Implementasi fungsi sounds() */
+        //! Implementasi dari fungsi Sounds()
+        /*!
+        Digunakan untuk mengeluarkan suara cow
+        TBD!
+        */
         void Sounds();
 
 };
