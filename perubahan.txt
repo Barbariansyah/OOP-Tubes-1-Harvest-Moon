@@ -1,4 +1,4 @@
 Perubahan - perubahan
 1. SideProduct.h, const di recipe[] dihilangkan 22/03
 2. SideProduct.h, recipe[] dihilangkan 23/03
-
+3. BeefRolade.h, Pancake.h, ChickenButterMilk.h, GoatCheese.h, menambah private static string recipe[] 23/03
