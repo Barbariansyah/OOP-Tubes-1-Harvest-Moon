@@ -7,10 +7,10 @@ Land :: Land(){
     //grass = false;
 }
 
-void Land :: growGrass(){
+void Land :: GrowGrass(){
     grass = true;
 }
 
-void Land :: removeGrass(){
+void Land :: RemoveGrass(){
     grass = false;
 }
