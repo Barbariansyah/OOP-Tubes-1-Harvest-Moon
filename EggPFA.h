@@ -14,14 +14,9 @@ class EggPFA : public FarmAnimal {
     protected :
 
         int available_egg; /*!< sebuah integer untuk merepresentasikan jumlah telur tersedia */
+        
     public :
 
-        //! Implementasi dari fungsi Render()
-        /*!
-        Digunakan untuk menampilkan berpindah pada map
-        TBD!
-        */
-        void Move();
 
         //! Fungsi getter
         /*!
@@ -35,7 +30,7 @@ class EggPFA : public FarmAnimal {
         Digunakan untuk mengubah atribut pada kelas ini, yaitu available_egg oleh objek lain
         TBD!
         */
-        void SetAvailableEgg();
+        void SetAvailableEgg(int _available_egg);
         
 };
 

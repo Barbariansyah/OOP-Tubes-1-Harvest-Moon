@@ -19,7 +19,7 @@ class Duck : public EggPFA , public MeatPFA {
         /*!
         TBD!
         */
-        Duck();
+        Duck(int _pos_x , int _pos_y);
 
         //! Implementasi dari fungsi Render()
         /*!

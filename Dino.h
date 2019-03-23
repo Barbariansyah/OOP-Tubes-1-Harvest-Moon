@@ -19,7 +19,7 @@ class Dino : public EggPFA , public MeatPFA {
         /*!
         TBD!
         */
-        Dino();
+        Dino(int _pos_x , int _pos_y);
 
         //! Implementasi dari fungsi Render()
         /*!

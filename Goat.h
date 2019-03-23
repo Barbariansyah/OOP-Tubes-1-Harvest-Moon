@@ -19,7 +19,7 @@ class Goat : public MilkPFA , public MeatPFA {
         /*!
         TBD!
         */
-        Goat();
+        Goat(int _pos_x , int _pos_y);
 
         //! Implementasi dari fungsi Render()
         /*!

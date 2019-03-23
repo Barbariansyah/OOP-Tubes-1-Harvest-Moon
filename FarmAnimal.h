@@ -14,7 +14,7 @@ class FarmAnimal : public LiveEntity {
     protected :
 
         int hunger_countdown;  /*!< sebuah integer untuk merepresentasikan countdown lapar */
-        bool product_available;  /*!< sebuah boolean untuk merepresentasikan apakah animal memiliki product untuk diambil atau tidak*/
+        int allowed_tiles;
 
     public :
 
@@ -39,6 +39,8 @@ class FarmAnimal : public LiveEntity {
         @return jumlah tick kelaparan, positif berarti kenyang, nol lapar, -5 mati
         */
         int GetHungerCountdown();
+
+        void Move();
 
 };
 

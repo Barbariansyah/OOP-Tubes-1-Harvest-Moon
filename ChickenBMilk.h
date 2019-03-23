@@ -7,12 +7,24 @@
  * Terbuat dari chicken meat dan cow milk
  */
 class ChickenButtermilk : public SideProduct{
+  protected:
+    private static string recipe[];
   public:
     /**
      * Konstruktor ChickenButtermilk.
      * Melakukan pemanggilan validasi resep sebelum pembuatan objek
      */
     ChickenButtermilk();
+    /**
+     * getRecipe.
+     * Melakukan pengembalian recipe
+     */
+    static string[] getRecipe();
+    /**
+     * validateRecipe.
+     * Melakukan validasi resep
+     */
+     boolean validateRecipe(string inventory[]);
 };
 
 #endif
