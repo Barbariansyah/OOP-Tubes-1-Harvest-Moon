@@ -15,10 +15,6 @@ void Truck :: TickTruck(){
     }
 }
 
-bool Truck :: GetAvailable(){
-    return AwayCounter == 0;
-}
-
 void Truck :: SetToAvailable(){
     AwayCounter = 0;
 }

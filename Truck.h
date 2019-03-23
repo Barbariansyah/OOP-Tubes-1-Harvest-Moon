@@ -28,12 +28,6 @@ class Truck : public Facility{
         void TickTruck();
 
         /**
-         * Method setter attribut AwayCounter pada Truck
-         * Method ini mengubah AwayCounter menjadi 0. Dipanggil oleh Tick ketika AwayCounter = 5
-         */
-        void SetToAvailable();
-
-        /**
          * Method getter untuk keberadaan truck.
          * @return apakah truck tersedia.
          */
