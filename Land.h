@@ -22,12 +22,12 @@ class Land : public Cell{
          * Setter untuk menandakan adanya grass.
          * Terjadi ketika player melakukan grow
          */
-        void growGrass();
+        void GrowGrass();
         /**
          * Setter untuk menandakan grass tidak ada.
          * Terjadi ketika grass pada land tersebut dimakan farm animal.
          */
-        void removeGrass();
+        void RemoveGrass();
 };
 
 #endif
