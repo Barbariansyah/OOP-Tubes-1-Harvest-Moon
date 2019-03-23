@@ -9,20 +9,13 @@
     kelas hewan-hewan penghasil susu. 
     Berisi implementasi fungsi Move()
 */
-class MilkPFA : public FarmAnimal {
+class MilkPFA : virtual public FarmAnimal {
 
     protected :
 
         int available_milk; /*!< sebuah integer untuk merepresentasikan jumlah susu tersedia */
 
     public :
-
-        //! Implementasi dari fungsi Render()
-        /*!
-        Digunakan untuk menampilkan berpindah pada map
-        TBD!
-        */
-        void Move();
 
         //! Fungsi getter
         /*!

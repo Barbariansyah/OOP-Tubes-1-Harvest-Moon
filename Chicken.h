@@ -19,7 +19,7 @@ class Chicken : public MeatPFA, public EggPFA {
         /*!
         TBD!
         */
-        Chicken();
+        Chicken(int _pos_x , int _pos_y);
 
         //! Implementasi dari fungsi Render()
         /*!

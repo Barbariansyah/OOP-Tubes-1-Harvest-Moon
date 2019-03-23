@@ -3,9 +3,9 @@
 
 #include "MeatPFA.h"
 
-//! Kelas Cow
+//! Kelas Rabbit
 /*!
-  Sebuah kelas riil dari FarmAnimal, yaitu kelas cow
+  Sebuah kelas riil dari FarmAnimal, yaitu kelas Rabbit
   Berisi sebuah konstruktor, implementasi fungsi Render(), dan implementasi fungsi Sounds()
 */
 class Rabbit : public MeatPFA {
@@ -14,22 +14,22 @@ class Rabbit : public MeatPFA {
 
     public :
 
-        //! Konstruktor dari kelas cow
+        //! Konstruktor dari kelas rabbit
         /*!
         TBD!
         */
-        Rabbit();
+        Rabbit(int _pos_x , int _pos_y);
 
         //! Implementasi dari fungsi Render()
         /*!
-        Digunakan untuk menampilkan cow pada Map
+        Digunakan untuk menampilkan rabbit pada Map
         @return karakter serta kode warna yang sesuai dengan Player.
         */
         string Render();
 
         //! Implementasi dari fungsi Sounds()
         /*!
-        Digunakan untuk mengeluarkan suara cow
+        Digunakan untuk mengeluarkan suara rabbit
         TBD!
         */
         void Sounds();

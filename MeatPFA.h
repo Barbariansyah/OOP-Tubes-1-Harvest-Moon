@@ -9,18 +9,11 @@
     kelas hewan-hewan penghasil daging. 
     Berisi implementasi fungsi Move()
 */
-class MeatPFA : public FarmAnimal {
+class MeatPFA : virtual public FarmAnimal {
 
     protected :
 
     public :
-
-        //! Implementasi dari fungsi Move()
-        /*!
-        Digunakan untuk menampilkan berpindah pada map
-        TBD!
-        */
-        void Move();
         
 };
 

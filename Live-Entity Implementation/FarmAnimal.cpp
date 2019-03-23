@@ -24,3 +24,9 @@ int FarmAnimal :: GetHungerCountdown()
     {
         return hunger_countdown;
     }
+
+void FarmAnimal :: Move()
+    {
+        pos_x = 0;
+        pos_y = 0;
+    }

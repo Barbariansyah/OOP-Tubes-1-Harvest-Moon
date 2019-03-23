@@ -10,7 +10,6 @@
   Berisi sebuah konstruktor, implementasi fungsi Render(), dan implementasi fungsi Sounds()
 */
 class Cow : public MilkPFA , public MeatPFA {
-
     private :
 
     public :
@@ -19,7 +18,7 @@ class Cow : public MilkPFA , public MeatPFA {
         /*!
         TBD!
         */
-        Cow();
+        Cow(int _pos_x , int _pos_y);
 
         //! Implementasi dari fungsi Render()
         /*!
