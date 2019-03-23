@@ -1,5 +1,6 @@
 #ifndef SIDE_PRODUCT_H
 #define SIDE_PRODUCT_H
+#include <string.h>
 
 #include "Product.h"
 
