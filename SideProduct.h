@@ -8,8 +8,6 @@
  * Kelas turunan dari product untuk produk olahan/hasil mixer
  */
 class SideProduct : public Product{
-  protected:
-    const string recipe[];
   public:
     /**
      * Konstruktor side product.
@@ -18,14 +16,8 @@ class SideProduct : public Product{
      */
     SideProduct(int _price, string _name);
     /**
-     * Method untuk validasi apakah sebuah resep dapat dibuat dari bahan yang tersedia.
-     * @param ingredients[] array of string dari inventory player
-     * @return apakah resep dapat dibuat dari ingredients
-     */
-    bool validateRecipe(string ingredients[]);
-    /**
      * Implementasi method Print.
-     * Method ini mencetak produk sesuai format side product 
+     * Method ini mencetak produk sesuai format side product
      */
     void Print();
 };
