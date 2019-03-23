@@ -13,10 +13,7 @@ using namespace std;
  */
 class Facility : public Cell, public Entity{
    public:
-      /**
-      * Konstruktor Facility.
-      */
-      Facility();
+   
 };
 
 #endif
