@@ -8,10 +8,7 @@
  */
 class Cell : public Renderable{
     public:
-        /**
-         * Konstruktor Cell.
-         */
-        Cell();
+        
 };
 
 #endif

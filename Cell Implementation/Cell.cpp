@@ -3,6 +3,3 @@
 
 using namespace std;
 
-Cell :: Cell(){
-
-}
