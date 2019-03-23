@@ -15,10 +15,6 @@ class Land : public Cell{
         bool grass; /*<! Boolean apakah sebuah tile ditumbuhi grass*/
     public:
         /**
-         * Konstruktor Land.
-         */
-        Land();
-        /**
          * Setter untuk menandakan adanya grass.
          * Terjadi ketika player melakukan grow
          */
