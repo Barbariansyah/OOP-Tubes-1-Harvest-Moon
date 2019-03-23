@@ -14,7 +14,6 @@ class FarmAnimal : public LiveEntity {
     protected :
 
         int hunger_countdown;  /*!< sebuah integer untuk merepresentasikan countdown lapar */
-        bool product_available;  /*!< sebuah boolean untuk merepresentasikan apakah animal memiliki product untuk diambil atau tidak*/
 
     public :
 

@@ -15,7 +15,7 @@ class MeatPFA : public FarmAnimal {
 
     public :
 
-        //! Implementasi dari fungsi Render()
+        //! Implementasi dari fungsi Move()
         /*!
         Digunakan untuk menampilkan berpindah pada map
         TBD!
