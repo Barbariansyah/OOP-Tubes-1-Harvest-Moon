@@ -13,7 +13,7 @@ class SideProduct : public Product{
   public:
     /**
      * Konstruktor side product.
-     * @param _Price harga yang ditentukan dari barang yang dibuat
+     * @param _price harga yang ditentukan dari barang yang dibuat
      * @param _name nama produk
      */
     SideProduct(int _price, string _name);
