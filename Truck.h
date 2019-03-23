@@ -18,8 +18,9 @@ class Truck : public Facility{
     public:
         /**
          * Konstruktor Truck.
+         * @param x,y adalah posisi Truck pada cell
          */
-        Truck();
+        Truck(int _x, int _y);
         /**
          * Method tick pada Truck.
          * Method ini dapat dipanggil oleh Tick pada Game dan memodifikasi AwayCounter jika nilainya positif.
