@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Barn.h"
+#include "..\Barn.h"
 
 using namespace std;
 

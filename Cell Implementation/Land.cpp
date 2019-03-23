@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Land.h"
+#include "..\Land.h"
 
 using namespace std;
 
@@ -11,6 +11,6 @@ void Land :: growGrass(){
     grass = true;
 }
 
-void Land : removeGrass(){
+void Land :: removeGrass(){
     grass = false;
 }

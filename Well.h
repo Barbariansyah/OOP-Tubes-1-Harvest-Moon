@@ -15,8 +15,9 @@ class Well : public Facility{
     public:
         /**
          * Konstruktor Truck.
+         * @param _x, _y adalah posisi Well pada Cell
          */
-        Well();
+        Well(int _x, int _y);
         /**
          * Implementasi fungsi render dari kelas renderer.
          * @return karakter serta kode warna yang sesuai dengan Truck.

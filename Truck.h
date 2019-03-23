@@ -18,7 +18,7 @@ class Truck : public Facility{
     public:
         /**
          * Konstruktor Truck.
-         * @param x,y adalah posisi Truck pada cell
+         * @param _x, _y adalah posisi Truck pada cell
          */
         Truck(int _x, int _y);
         /**
@@ -26,6 +26,13 @@ class Truck : public Facility{
          * Method ini dapat dipanggil oleh Tick pada Game dan memodifikasi AwayCounter jika nilainya positif.
          */
         void TickTruck();
+
+        /**
+         * Method setter attribut AwayCounter pada Truck
+         * Method ini mengubah AwayCounter menjadi 0. Dipanggil oleh Tick ketika AwayCounter = 5
+         */
+        void SetToAvailable();
+
         /**
          * Method getter untuk keberadaan truck.
          * @return apakah truck tersedia.

@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Grassland.h"
+#include "..\Grassland.h"
 
 using namespace std;
 
@@ -7,6 +7,6 @@ Grassland :: Grassland(){
     grass = true;
 }
 
-string Grassland :: Grassland(){
+string Grassland :: Render(){
     return "-";
 }
