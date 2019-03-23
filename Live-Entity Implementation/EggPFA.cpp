@@ -7,7 +7,7 @@ using namespace std;
 /*!
 Digunakan untuk berpindah pada map
 */
-void MeatPFA :: Move()
+void EggPFA :: Move()
     {
         // TBD
         // Menunggu ukuran Coop sehingga angka bisa di random pada range tersebut

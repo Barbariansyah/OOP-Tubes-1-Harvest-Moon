@@ -7,7 +7,7 @@ using namespace std;
 /*!
 Digunakan untuk berpindah pada map
 */
-void MeatPFA :: Move()
+void MilkPFA :: Move()
     {
         // TBD
         // Menunggu ukuran Grassland sehingga angka bisa di random pada range tersebut
