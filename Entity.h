@@ -17,14 +17,14 @@ class Entity : public Renderable {
 
     public :
 
-        //! Pure virtual getter x
+        //! Fungsi getter x
         /*!
         Digunakan untuk mendapatkan atribut pos_x oleh objek lain
         @return X;
         */
         int GetX();
 
-        //! Pure virtual getter y
+        //! Fungsi getter y
         /*!
         Digunakan untuk mendapatkan atribut pos_y oleh objek lain
         @return Y;

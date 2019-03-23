@@ -84,9 +84,8 @@ class Player : public LiveEntity {
         Digunakan untuk melakukan perpindahan pada map 
         TBD!
         */
-        void Move();
-        
-        //! Implementasi dari fungsi Move()
+        void Move(string _direction);
+        //! Implementasi dari fungsi Talk()
         /*!
         Digunakan untuk melakukan interaksi dengan animal
         TBD!
