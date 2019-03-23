@@ -24,7 +24,7 @@ class BeefRolade : public SideProduct{
      * validateRecipe.
      * Melakukan validasi resep
      */
-     boolean validateRecipe(string recipe[]);
+     boolean validateRecipe(string inventory[]);
 
 };
 
