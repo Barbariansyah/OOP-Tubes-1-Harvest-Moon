@@ -36,7 +36,7 @@ class MilkPFA : public FarmAnimal {
         Digunakan untuk mengubah atribut pada kelas ini, yaitu available_egg oleh objek lain
         TBD!
         */
-        void SetAvailableMilk();
+        void SetAvailableMilk(int _available_milk);
 };
 
 #endif

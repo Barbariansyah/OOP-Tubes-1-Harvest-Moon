@@ -35,7 +35,7 @@ class EggPFA : public FarmAnimal {
         Digunakan untuk mengubah atribut pada kelas ini, yaitu available_egg oleh objek lain
         TBD!
         */
-        void SetAvailableEgg();
+        void SetAvailableEgg(int _available_egg);
         
 };
 
