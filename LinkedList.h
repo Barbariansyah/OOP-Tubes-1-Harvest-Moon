@@ -5,7 +5,7 @@ template<class T>
 class LinkedList{
     private:
         int n;
-        T data[];
+        T * data;
     public:
         LinkedList(){
             n = 0;
