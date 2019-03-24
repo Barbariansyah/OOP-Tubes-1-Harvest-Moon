@@ -15,6 +15,13 @@ class LinkedList{
             n = _n;
             data = new T[n];
         }
+        LinkedList(const LinkedList<T>& LL){
+            n = LL.n;
+            data = new T[n];
+            for(int i = 0; i < n; i++){
+                data[i] = LL.data[i];
+            }
+        }
         /**
          * Mengembalikan indeks dimana elemen ditemukan, -1 jika tidak ada
          * @param element elemen yang ingin dicari dari linked list
