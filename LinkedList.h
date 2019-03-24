@@ -1,4 +1,7 @@
-template<typename T>
+#ifndef LINKEDLIST_H
+#define LINKEDLIST_H
+
+template<class T>
 class LinkedList{
     private:
         T data[];
@@ -23,7 +26,7 @@ class LinkedList{
                 while(i<n-1 && data[i]!=element){
                     i++;
                 }
-                if (data[i]==element)
+                if (data[i] == element)
                     return i;
                 else
                     return -1;
@@ -35,6 +38,11 @@ class LinkedList{
          */
         bool isEmpty(){ return n == 0; }
         /**
+         * Mengembalikan panjang linkedlist
+         * @return jumlah elemen pada linkedlist
+         */
+        int length(){ return n; }
+        /**
          * Menambahkan elemen sebagai elemen paling akhir
          * @param elemen elemen yang akan ditambahkan pada linked list
          */
@@ -43,10 +51,9 @@ class LinkedList{
             for(int i = 0; i < n; i++){
                 newData[i] = data[i];
             }
-            newData[i] = element;
+            newData[n++] = element;
             delete [] data;
             data = newData;
-            n++;
         }
         /**
          * Membuang elemen dari linked list. Elemen diasumsikan unik
@@ -54,10 +61,14 @@ class LinkedList{
          */
         void remove(T element){
             if (!isEmpty() && find(element) != -1){
+                bool found = false;
+                int i,j;
                 T newData = new T[n-1];
-                for(int i = 0, int j = 0; i < n; i++){
-                    if (data[i] != element){
+                for(i = 0, j = 0; i < n; i++){
+                    if (!(data[i] == element) || found){
                         newData[j++] = data[i];
+                    }else{
+                        found = true;
                     }
                 }
                 delete [] data;
@@ -74,3 +85,5 @@ class LinkedList{
             return data[index];
         }
 };
+
+#endif

@@ -1,4 +1,4 @@
-HEADER=all_headers.h
+HEADER=All.h
 echo "#ifndef __ALL_HEADERS__" > $HEADER
 echo "#define __ALL_HEADERS__" >> $HEADER
 for file in *.h
