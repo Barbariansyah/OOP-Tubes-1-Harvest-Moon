@@ -56,8 +56,8 @@ class LinkedList{
          * Menambahkan elemen sebagai elemen paling akhir
          * @param elemen elemen yang akan ditambahkan pada linked list
          */
-        void add(T& element){
-            T newData = new T[n+1];
+        void add(T element){
+            T *newData = new T[n+1];
             for(int i = 0; i < n; i++){
                 newData[i] = data[i];
             }
@@ -69,11 +69,11 @@ class LinkedList{
          * Membuang elemen dari linked list. Elemen diasumsikan unik
          * @param elemen yang akan dibuang dari linked list
          */
-        void remove(const T& element){
+        void remove(const T element){
             if (!isEmpty() && find(element) != -1){
                 bool found = false;
                 int i,j;
-                T newData = new T[n-1];
+                T *newData = new T[n-1];
                 for(i = 0, j = 0; i < n; i++){
                     if (!(data[i] == element) || found){
                         newData[j++] = data[i];
