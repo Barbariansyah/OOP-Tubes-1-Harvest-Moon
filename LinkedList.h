@@ -22,6 +22,9 @@ class LinkedList{
                 data[i] = LL.data[i];
             }
         }
+        ~LinkedList(){
+            delete [] data;
+        }
         /**
          * Mengembalikan indeks dimana elemen ditemukan, -1 jika tidak ada
          * @param element elemen yang ingin dicari dari linked list
