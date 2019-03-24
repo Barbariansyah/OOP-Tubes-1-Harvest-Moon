@@ -12,12 +12,13 @@ using namespace std;
  */
 class Game {
     private:
-        static Land ** landmap;            /*!< Atribut untuk menyimpan setiap land*/
-        static Entity ** entitymap;        /*!< Atribut untuk menyimpan entity posisi entity untuk keperluan move*/
-        static LinkedList<FarmAnimal> animals; /*!< Atribut untuk interaksi dengan farm animal */
+        static Land *** landmap;            /*!< Atribut untuk menyimpan setiap land*/
+        static Entity *** entitymap;        /*!< Atribut untuk menyimpan entity posisi entity untuk keperluan move*/
+        static LinkedList<FarmAnimal*> animals; /*!< Atribut untuk interaksi dengan farm animal */
         static Truck truck;
         static Well well;
         static Mixer mixer;
+        static int nBaris,nKolom;
         Game(){}                           /*!< Menandakan Game adalah kelas statik sehingga tidak dapat diinstantiasi*/
     public:
         /**

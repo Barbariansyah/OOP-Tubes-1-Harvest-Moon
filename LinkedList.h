@@ -4,8 +4,8 @@
 template<class T>
 class LinkedList{
     private:
-        T data[];
         int n;
+        T data[];
     public:
         LinkedList(){
             n = 0;
