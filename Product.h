@@ -26,6 +26,12 @@ class Product{
      */
     double getPrice() const;
     /**
+     * Getter nama.
+     * Mengembalikan nama dari suatu produk
+     * @return nama produk
+     */
+    string getName() const;
+    /**
      * Pure virtual method Print.
      * Method ini mencetak produk yang tampilannya akan berbeda antara side product dengan farm product 
      */
