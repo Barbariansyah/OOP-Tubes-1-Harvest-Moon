@@ -20,7 +20,7 @@ class LinkedList{
          * @param element elemen yang ingin dicari dari linked list
          * @return index elemen, -1 jika tidak ada
          */
-        int find(T element){
+        int find(const T& element){
             if (n != 0){
                 int i = 0;
                 while(i<n-1 && data[i]!=element){
@@ -46,7 +46,7 @@ class LinkedList{
          * Menambahkan elemen sebagai elemen paling akhir
          * @param elemen elemen yang akan ditambahkan pada linked list
          */
-        void add(T element){
+        void add(T& element){
             T newData = new T[n+1];
             for(int i = 0; i < n; i++){
                 newData[i] = data[i];
@@ -59,7 +59,7 @@ class LinkedList{
          * Membuang elemen dari linked list. Elemen diasumsikan unik
          * @param elemen yang akan dibuang dari linked list
          */
-        void remove(T element){
+        void remove(const T& element){
             if (!isEmpty() && find(element) != -1){
                 bool found = false;
                 int i,j;
@@ -81,7 +81,7 @@ class LinkedList{
          * @param index index dari data yang diinginkan
          * @return objek pada index ke-index
          */
-        T get(int index){
+        T& get(int index){
             return data[index];
         }
 };

@@ -83,21 +83,21 @@ class Game {
          * @param y posisi y akses, digunakan untuk menentukan apakah berada di dekat truck
          * @return objek truck pada jika berada di dekat x,y. Null jika tidak berada di dekat x,y
          */
-        static Truck getTruck(int x, int y);
+        static Truck& getTruck(int x, int y);
         /**
          * Method untuk mengakses instans well jika berada di dekat posisi x,y.
          * @param x posisi x akses, digunakan untuk menentukan apakah berada di dekat well 
          * @param y posisi y akses, digunakan untuk menentukan apakah berada di dekat well
          * @return objek well pada jika berada di dekat x,y. Null jika tidak berada di dekat x,y
          */
-        static Well getWell(int x, int y);
+        static Well& getWell(int x, int y);
         /**
          * Method untuk mengakses instans mixer jika berada di dekat posisi x,y.
          * @param x posisi x akses, digunakan untuk menentukan apakah berada di dekat mixer 
          * @param y posisi y akses, digunakan untuk menentukan apakah berada di dekat mixer
          * @return objek mixer pada jika berada di dekat x,y. Null jika tidak berada di dekat x,y
          */
-        static Mixer getMixer(int x, int y);
+        static Mixer& getMixer(int x, int y);
 };
 
 #endif
