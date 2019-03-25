@@ -34,9 +34,12 @@ class Product{
     string getName() const;
     /**
      * Pure virtual method Print.
-     * Method ini mencetak produk yang tampilannya akan berbeda antara side product dengan farm product 
+     * Method ini mencetak produk yang tampilannya akan berbeda antara side product dengan farm product
      */
     virtual void Print() = 0;
+
+    friend bool operator==(const Product& p1, const Product& p2);
+
 };
 
 #endif
