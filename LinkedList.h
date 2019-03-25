@@ -1,5 +1,8 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
+#include <iostream>
+
+#include "Product.h"
 
 template<class T>
 class LinkedList{
@@ -33,10 +36,27 @@ class LinkedList{
         int find(const T& element){
             if (n != 0){
                 int i = 0;
-                while(i<n-1 && data[i]!=element){
+                while(i<n-1 && !(data[i]==element)){
                     i++;
                 }
                 if (data[i] == element)
+                    return i;
+                else
+                    return -1;
+            }
+        }
+        /**
+         * Mengembalikan indeks dimana elemen ditemukan, -1 jika tidak ada
+         * @param element adalah pointer ke elemen yang ingin dicari dari linked list
+         * @return index elemen, -1 jika tidak ada
+         */
+        int findPointer(const T& element){
+            if (n != 0){
+                int i = 0;
+                while(i<n-1 && !(*(data[i])==*element)){
+                    i++;
+                }
+                if (*(data[i]) == *element)
                     return i;
                 else
                     return -1;
