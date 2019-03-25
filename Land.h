@@ -13,7 +13,7 @@ using namespace std;
 class Land : public Cell{
     protected:
         bool grass; /*<! Boolean apakah sebuah tile ditumbuhi grass*/
-        string type;
+        string type; /*<! string untuk menunjukkan tipe dari land*/
     public:
         /**
          * Setter untuk menandakan adanya grass.
