@@ -17,9 +17,12 @@ class FarmProduct : public Product{
     FarmProduct(double _price, string _name);
     /**
      * Implementasi method Print.
-     * Method ini mencetak produk sesuai format farm product 
+     * Method ini mencetak produk sesuai format farm product
      */
     void Print();
+
+    //friend bool operator==(const FarmProduct p1, const FarmProduct p2);
+
 };
 
 #endif
