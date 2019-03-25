@@ -5,6 +5,7 @@ using namespace std;
 
 Grassland :: Grassland(){
     grass = true;
+    type = "Grassland";
 }
 
 string Grassland :: Render(){

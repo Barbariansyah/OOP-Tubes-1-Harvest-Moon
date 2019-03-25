@@ -15,8 +15,8 @@ void Truck :: TickTruck(){
     }
 }
 
-void Truck :: SetToAvailable(){
-    AwayCounter = 0;
+void Truck :: SetAwayCounter(int val){
+    AwayCounter = val;
 }
 
 string Truck :: Render(){
