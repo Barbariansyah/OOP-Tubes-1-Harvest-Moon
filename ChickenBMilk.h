@@ -2,14 +2,19 @@
 #define CHICKEN_BMILK_H
 
 #include "SideProduct.h"
+#include "LinkedList.h"
 /**
  * Kelas ChickenButtermilk, kelas riil turunan side product.
  * Terbuat dari chicken meat dan cow milk
  */
 class ChickenButtermilk : public SideProduct{
-  protected:
-    private static string recipe[];
-  public:
+    public:
+      static LinkedList<Product*> recipe;
+    /**
+     * initRecipe.
+     * Melakukan inisiasi resep
+     */
+    static void initRecipe();
     /**
      * Konstruktor ChickenButtermilk.
      * Melakukan pemanggilan validasi resep sebelum pembuatan objek
@@ -19,12 +24,12 @@ class ChickenButtermilk : public SideProduct{
      * getRecipe.
      * Melakukan pengembalian recipe
      */
-    static string[] getRecipe();
+    static LinkedList<Product*> getRecipe();
     /**
      * validateRecipe.
      * Melakukan validasi resep
      */
-     boolean validateRecipe(string inventory[]);
+     static bool validateRecipe(LinkedList<Product*> inventory);
 };
 
 #endif
