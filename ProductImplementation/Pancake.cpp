@@ -1,24 +1,23 @@
-#include "../BeefRolade.h"
+#include "../Pancake.h"
 
-LinkedList<Product*> BeefRolade::recipe;
+LinkedList<Product*> Pancake::recipe;
 
-void BeefRolade::initRecipe(){
+void Pancake::initRecipe(){
   recipe.add(new ChickenEgg());
-  recipe.add(new CowMeat());
+  recipe.add(new CowMilk());
 }
 
-BeefRolade::BeefRolade():SideProduct(100000,"Beef Rolade"){
-}
+Pancake::Pancake():SideProduct(75000,"Pancake"){}
 
-LinkedList<Product*> BeefRolade::getRecipe(){
+LinkedList<Product*> Pancake::getRecipe(){
   return recipe;
 }
 
-bool BeefRolade::validateRecipe(LinkedList<Product*> inventory){
+bool Pancake::validateRecipe(LinkedList<Product*> inventory){
   bool val = false;
 
   LinkedList<Product*> temp = inventory;
-  LinkedList<Product*> tempRecipe = BeefRolade::recipe;
+  LinkedList<Product*> tempRecipe = Pancake::recipe;
 
   int i = 0;
   while((temp.length() >= tempRecipe.length()) && i <tempRecipe.length()){
