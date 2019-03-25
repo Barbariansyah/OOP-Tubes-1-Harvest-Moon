@@ -33,6 +33,11 @@ class Product{
      */
     string getName() const;
     /**
+     * override operator ==.
+     * Mengmbalikan perbandingan dua produk
+     */
+    friend bool operator==(const Product* p1, const Product* p2);
+    /**
      * Pure virtual method Print.
      * Method ini mencetak produk yang tampilannya akan berbeda antara side product dengan farm product 
      */
