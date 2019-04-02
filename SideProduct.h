@@ -3,10 +3,17 @@
 
 
 #include "Product.h"
-#include "FarmProduct.h"
-#include "ChickenEgg.h"
-#include "CowMeat.h"
 #include "LinkedList.h"
+#include "DuckEgg.h"
+#include "GoatMilk.h"
+#include "DuckMeat.h"
+#include "RabbitMeat.h"
+#include "CowMeat.h"
+#include "GoatMeat.h"
+#include "ChickenMeat.h"
+#include "CowMilk.h"
+#include "ChickenEgg.h"
+#include "DinoEgg.h"
 
 /**
  * Abstract base class SideProduct.

@@ -28,10 +28,15 @@ class Truck : public Facility{
         void TickTruck();
 
         /**
-         * Method getter untuk keberadaan truck.
+         * Method getter untuk keberadaan truck (AwayCounter).
          * @return apakah truck tersedia.
          */
         bool GetAvailable();
+        /**
+         * Method setter untuk keberadaan truck (AwayCounter).
+         * @param apakah truck tersedia.
+         */
+        void SetAwayCounter(int val);
         /**
          * Implementasi fungsi render dari kelas renderer.
          * @return karakter serta kode warna yang sesuai dengan Truck.

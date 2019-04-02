@@ -8,3 +8,12 @@ void FarmProduct::Print(){
   cout<<"Name   : "<<name<<endl;
   cout<<"Price  : "<<price<<endl;
 };
+/*
+bool operator==(const FarmProduct p1, const FarmProduct p2){
+    if (p1.getName().compare(p2.getName()) == 0){
+      return true;
+    }
+    else{
+      return false;
+    }
+}*/

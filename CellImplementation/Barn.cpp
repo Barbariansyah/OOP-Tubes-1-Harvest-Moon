@@ -5,6 +5,7 @@ using namespace std;
 
 Barn :: Barn(){
     grass = false;
+    type = "Barn";
 }
 
 string Barn :: Render(){
