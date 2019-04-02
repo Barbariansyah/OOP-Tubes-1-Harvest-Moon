@@ -1,11 +1,14 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
+#include <iostream>
+
+#include "Product.h"
 
 template<class T>
 class LinkedList{
     private:
         int n;
-        T data[];
+        T * data;
     public:
         LinkedList(){
             n = 0;
@@ -22,6 +25,9 @@ class LinkedList{
                 data[i] = LL.data[i];
             }
         }
+        ~LinkedList(){
+            delete [] data;
+        }
         /**
          * Mengembalikan indeks dimana elemen ditemukan, -1 jika tidak ada
          * @param element elemen yang ingin dicari dari linked list
@@ -30,10 +36,27 @@ class LinkedList{
         int find(const T& element){
             if (n != 0){
                 int i = 0;
-                while(i<n-1 && data[i]!=element){
+                while(i<n-1 && !(data[i]==element)){
                     i++;
                 }
                 if (data[i] == element)
+                    return i;
+                else
+                    return -1;
+            }
+        }
+        /**
+         * Mengembalikan indeks dimana elemen ditemukan, -1 jika tidak ada
+         * @param element adalah pointer ke elemen yang ingin dicari dari linked list
+         * @return index elemen, -1 jika tidak ada
+         */
+        int findPointer(const T& element){
+            if (n != 0){
+                int i = 0;
+                while(i<n-1 && !(*(data[i])==*element)){
+                    i++;
+                }
+                if (*(data[i]) == *element)
                     return i;
                 else
                     return -1;
@@ -53,8 +76,8 @@ class LinkedList{
          * Menambahkan elemen sebagai elemen paling akhir
          * @param elemen elemen yang akan ditambahkan pada linked list
          */
-        void add(T& element){
-            T newData = new T[n+1];
+        void add(T element){
+            T *newData = new T[n+1];
             for(int i = 0; i < n; i++){
                 newData[i] = data[i];
             }
@@ -66,11 +89,11 @@ class LinkedList{
          * Membuang elemen dari linked list. Elemen diasumsikan unik
          * @param elemen yang akan dibuang dari linked list
          */
-        void remove(const T& element){
+        void remove(const T element){
             if (!isEmpty() && find(element) != -1){
                 bool found = false;
                 int i,j;
-                T newData = new T[n-1];
+                T *newData = new T[n-1];
                 for(i = 0, j = 0; i < n; i++){
                     if (!(data[i] == element) || found){
                         newData[j++] = data[i];

@@ -7,9 +7,13 @@
  * Terbuat dari cow meat dan chicken egg.
  */
 class BeefRolade : public SideProduct{
-  protected:
-    private static string recipe[];
   public:
+    static LinkedList<Product*> recipe;
+    /**
+     * initRecipe.
+     * Melakukan inisiasi resep
+     */
+    static void initRecipe();
     /**
      * Konstruktor BeefRolade.
      * Melakukan pemanggilan validasi resep sebelum pembuatan objek
@@ -19,12 +23,12 @@ class BeefRolade : public SideProduct{
      * getRecipe.
      * Melakukan pengembalian recipe
      */
-    static string[] getRecipe();
+    static LinkedList<Product*> getRecipe();
     /**
      * validateRecipe.
      * Melakukan validasi resep
      */
-     boolean validateRecipe(string inventory[]);
+     static bool validateRecipe(LinkedList<Product*> inventory);
 
 };
 

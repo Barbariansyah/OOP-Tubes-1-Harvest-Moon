@@ -7,9 +7,13 @@
  * Terbuat dari chicken egg dan cow milk
  */
 class Pancake : public SideProduct{
-  protected:
-    private static string recipe[];
-  public:
+    public:
+      static LinkedList<Product*> recipe;
+    /**
+     * initRecipe.
+     * Melakukan inisiasi resep
+     */
+    static void initRecipe();
     /**
      * Konstruktor pancake.
      * Melakukan pemanggilan validasi resep sebelum pembuatan objek
@@ -19,12 +23,12 @@ class Pancake : public SideProduct{
      * getRecipe.
      * Melakukan pengembalian recipe
      */
-    static string[] getRecipe();
+    static LinkedList<Product*> getRecipe();
     /**
      * validateRecipe.
      * Melakukan validasi resep
      */
-     boolean validateRecipe(string inventory[]);
+     static bool validateRecipe(LinkedList<Product*> inventory);
 };
 
 #endif

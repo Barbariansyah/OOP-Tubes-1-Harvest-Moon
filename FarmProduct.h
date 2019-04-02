@@ -14,12 +14,15 @@ class FarmProduct : public Product{
      * @param _price harga dari produk hasil interact/kill
      * @param _name nama produk
      */
-    FarmProduct(int _price, string _name);
+    FarmProduct(double _price, string _name);
     /**
      * Implementasi method Print.
-     * Method ini mencetak produk sesuai format farm product 
+     * Method ini mencetak produk sesuai format farm product
      */
     void Print();
+
+    //friend bool operator==(const FarmProduct p1, const FarmProduct p2);
+
 };
 
 #endif

@@ -1,8 +1,12 @@
 #ifndef SIDE_PRODUCT_H
 #define SIDE_PRODUCT_H
-#include <string.h>
+
 
 #include "Product.h"
+#include "FarmProduct.h"
+#include "ChickenEgg.h"
+#include "CowMeat.h"
+#include "LinkedList.h"
 
 /**
  * Abstract base class SideProduct.
@@ -15,7 +19,7 @@ class SideProduct : public Product{
      * @param _price harga yang ditentukan dari barang yang dibuat
      * @param _name nama produk
      */
-    SideProduct(int _price, string _name);
+    SideProduct(double _price, string _name);
     /**
      * Implementasi method Print.
      * Method ini mencetak produk sesuai format side product
