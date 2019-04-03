@@ -42,4 +42,4 @@ FarmProduct Chicken :: getProduct()
 FarmProduct Chicken :: getKilledProduct()
     {
         return ChickenMeat();
-    }
+    } 

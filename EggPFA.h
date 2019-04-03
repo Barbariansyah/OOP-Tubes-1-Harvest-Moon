@@ -9,7 +9,7 @@
     kelas hewan-hewan penghasil telur. 
     Berisi implementasi fungsi Move()
 */
-class EggPFA : public FarmAnimal {
+class EggPFA : virtual public FarmAnimal {
 
     protected :
 
