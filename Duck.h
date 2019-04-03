@@ -35,6 +35,9 @@ class Duck : public EggPFA , public MeatPFA {
         */
         void Sounds();
 
+        FarmProduct getProduct();
+        FarmProduct getKilledProduct();
+
 };
 
 #endif

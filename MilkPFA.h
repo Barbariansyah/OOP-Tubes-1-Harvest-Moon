@@ -30,6 +30,8 @@ class MilkPFA : virtual public FarmAnimal {
         TBD!
         */
         void SetAvailableMilk(int _available_milk);
+
+        virtual FarmProduct getProduct() = 0;
 };
 
 #endif
