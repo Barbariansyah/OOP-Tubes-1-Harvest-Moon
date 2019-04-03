@@ -7,7 +7,7 @@
  * Kelas ChickenButtermilk, kelas riil turunan side product.
  * Terbuat dari chicken meat dan cow milk
  */
-class ChickenButtermilk : public SideProduct{
+class ChickenButterMilk : public SideProduct{
     public:
       static LinkedList<Product*> recipe;
     /**
@@ -19,7 +19,7 @@ class ChickenButtermilk : public SideProduct{
      * Konstruktor ChickenButtermilk.
      * Melakukan pemanggilan validasi resep sebelum pembuatan objek
      */
-    ChickenButtermilk();
+    ChickenButterMilk();
     /**
      * getRecipe.
      * Melakukan pengembalian recipe

@@ -7,7 +7,7 @@ void ChickenButterMilk::initRecipe(){
   recipe.add(new CowMilk());
 }
 
-ChickenButterMilk():SideProduct(110000,"Chicken Butter Milk"){
+ChickenButterMilk::ChickenButterMilk() : SideProduct(110000,"Chicken Butter Milk"){
 }
 
 LinkedList<Product*> ChickenButterMilk::getRecipe(){

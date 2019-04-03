@@ -1,20 +1,28 @@
 #include "Game.h"
 
+Land *** Game::landmap;            
+Entity *** Game::entitymap;        
+LinkedList<FarmAnimal*> Game::animals; 
+Truck Game::truck(0,0);
+Well Game::well(0,0);
+Mixer Game::mixer(0,0);
+int Game::nBaris,Game::nKolom;
+
 /**
  * Initialize Game.
  * Menerima nama file untuk kemudian dibaca dan dimuat dalam struktur data game.
  * @param filename nama file eksternal untuk dibaca
  */
 void Game::Initialize(string filename){
-    Game::nBaris = 10;
-    Game::nKolom = 10;
+    nBaris = 10;
+    nKolom = 10;
 
-    Game::truck = Truck(9,9);
-    Game::well = Well(9,8);
-    Game::mixer = Mixer(9,7);
+    truck = Truck(9,9);
+    well = Well(9,8);
+    mixer = Mixer(9,7);
 
-    Game::landmap = new Land**[nBaris];
-    Game::entitymap = new Entity**[nBaris];
+    landmap = new Land**[nBaris];
+    entitymap = new Entity**[nBaris];
     for(int i = 0; i < nBaris; i++){
         landmap[i] = new Land*[nKolom];
         entitymap[i] = new Entity*[nKolom];
@@ -23,6 +31,10 @@ void Game::Initialize(string filename){
             entitymap[i][j] = nullptr;
         }
     }
+
+    entitymap[9][9] = &truck;
+    entitymap[9][8] = &well;
+    entitymap[9][7] = &mixer;
 }
 /**
  * Method load game yang akan dipanggil oleh konstruktor.
@@ -30,7 +42,34 @@ void Game::Initialize(string filename){
  * @param filename nama file eksternal untuk dibaca
  */
 void Game::LoadGame(string filename){
-    //TODO
+    // open a file in read mode.
+    string line;
+    ifstream infile; 
+    infile.open(filename); 
+    
+    int i = 0;
+    while (getline(infile,line)){
+        for(int j = 0; j < line.length(); j++){
+            switch (line[j])
+            {
+                case '-':
+                    landmap[i][j] = new Grassland();
+                    break;
+                case 'O':
+                    landmap[i][j] = new Coop();
+                    break;
+                case 'X':
+                    landmap[i][j] = new Barn();
+                    break;
+                default:
+                    break;
+            }
+        }
+        i++;
+    }
+
+    // close the opened file.
+    infile.close();
 }
 /**
  * Method save game untuk menyimpan kondisi permainan ke file eksternal.
@@ -62,6 +101,7 @@ void Game::DrawScreen(){
                 cout << (*(landmap[i][j])).Render();
             }
         }
+        cout << endl;
     }
 }
 /**
