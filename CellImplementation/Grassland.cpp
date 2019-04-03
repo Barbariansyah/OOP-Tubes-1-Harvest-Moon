@@ -4,10 +4,16 @@
 using namespace std;
 
 Grassland :: Grassland(){
-    grass = true;
+    grass = false;
     type = "Grassland";
 }
 
 string Grassland :: Render(){
-    return "-";
+    if(isGrass()){
+        return "#";
+    }
+    else{
+        return "-";
+    }
+     
 }

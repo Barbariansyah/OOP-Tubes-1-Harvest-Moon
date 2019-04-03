@@ -2,6 +2,9 @@
 #define GAME_H
 
 #include "All.h"
+#include <iostream>
+#include <string>
+#include <fstream>
 
 using namespace std;
 

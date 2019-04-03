@@ -1,1 +1,2 @@
-g++ main.cpp CellImplementation/*.cpp LiveEntityImplementation/*.cpp ProductImplementation/*.cpp -o main
+g++ main.cpp Game.cpp CellImplementation/*.cpp LiveEntityImplementation/Entity.cpp ProductImplementation/*.cpp -o main
+#LiveEntityImplementation/*.cpp

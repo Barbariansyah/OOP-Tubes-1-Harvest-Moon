@@ -24,7 +24,13 @@ class Land : public Cell{
          * Setter untuk menandakan grass tidak ada.
          * Terjadi ketika grass pada land tersebut dimakan farm animal.
          */
-        void RemoveGrass();
+        void RemoveGrass(); 
+
+        /**
+         * Method getter untuk mendapatkan apakah pada sebuah land terdapat grass atau tidak
+         * @return boolean apakah terdapat grass atau tidak (bernilai true or false)
+         */
+        bool isGrass(); 
 };
 
 #endif
