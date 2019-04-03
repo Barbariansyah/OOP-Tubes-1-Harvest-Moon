@@ -35,6 +35,9 @@ class Goat : public MilkPFA , public MeatPFA {
         */
         void Sounds();
 
+        FarmProduct getKilledProduct();
+        FarmProduct getProduct();
+
 };
 
 #endif

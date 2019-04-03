@@ -2,6 +2,7 @@
 using namespace std;
 
 #include "../Player.h"
+#include "../FarmAnimal.h"
 
 //! Implementasi Kelas Player /*! */
 
@@ -132,9 +133,14 @@ Digunakan untuk melakukan interaksi dengan animal
 */
 void Player :: Talk()
     {
-        // TBD
-        // Menunggu fungsi mencari animal di sekitar player
-        // kemudian akan memanggil method Sounds() dari animal sekitar
+        try
+            {
+                FarmAnimal f_a = Game :: getAnimal(pos_x+1,pos_y);
+            }
+        catch(const char* msg)
+            {
+                cerr << msg << endl;
+            }
     }
 
 //! Implementasi dari fungsi Interact()

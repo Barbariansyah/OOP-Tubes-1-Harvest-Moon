@@ -9,7 +9,7 @@
     kelas hewan-hewan penghasil telur. 
     Berisi implementasi fungsi Move()
 */
-class EggPFA : public FarmAnimal {
+class EggPFA : virtual public FarmAnimal {
 
     protected :
 
@@ -24,7 +24,6 @@ class EggPFA : public FarmAnimal {
         TBD!
         */
         int GetAvailableEgg();
-
         //! Fungsi setter
         /*!
         Digunakan untuk mengubah atribut pada kelas ini, yaitu available_egg oleh objek lain
@@ -32,6 +31,7 @@ class EggPFA : public FarmAnimal {
         */
         void SetAvailableEgg(int _available_egg);
         
+        virtual FarmProduct getProduct() = 0;
 };
 
 #endif

@@ -2,7 +2,7 @@
 #define FARM_ANIMAL_H_
 
 #include "LiveEntity.h"
-
+#include "AllProduct.h"
 //! Kelas Farm Animal
 /*!
     Sebuah Abstract Base Class(ABC) sebagai representasi binatang yang ada pada permainan
@@ -31,7 +31,7 @@ class FarmAnimal : public LiveEntity {
         Pure virtual karena akan diimplementasikan di kelas riil
         TBD!
         */
-        virtual void Sounds() = 0;
+        virtual void Sounds();
 
         //! Fungsi Getter GetHungerCountdown()
         /*!
@@ -40,7 +40,26 @@ class FarmAnimal : public LiveEntity {
         */
         int GetHungerCountdown();
 
+        //! Fungsi move()
+        /*!
+        Digunakan untuk berpindah secara random
+        */
         void Move();
+
+        //! Fungsi Getter getProduct()
+        /*!
+        Getter untuk mendapatkan product dari hewan yang tidak dibunuh
+        @return product dari tiap hewan
+        */
+        virtual FarmProduct GetProduct();
+
+        
+        //! Fungsi Getter getKilledProduct()
+        /*!
+        Getter untuk mendapatkan product dari hewan yang dibunuh
+        @return product dari hewan yang dibunuh
+        */
+        virtual FarmProduct GetKilledProduct();
 
 };
 

@@ -14,7 +14,9 @@ class MeatPFA : virtual public FarmAnimal {
     protected :
 
     public :
-        
+
+    virtual FarmProduct getKilledProduct() = 0;
+    
 };
 
 #endif
