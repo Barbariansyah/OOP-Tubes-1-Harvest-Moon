@@ -34,3 +34,13 @@ void Duck :: Sounds()
     {
         cout << "Kwek Kwek" << endl;
     }
+
+FarmProduct Duck :: getProduct()
+    {
+        return DuckEgg();
+    }
+
+FarmProduct Duck :: getKilledProduct()
+    {
+        return DuckMeat();
+    }

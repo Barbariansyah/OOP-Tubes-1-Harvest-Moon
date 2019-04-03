@@ -19,7 +19,7 @@ Dino :: Dino(int _pos_x , int _pos_y)
 Digunakan untuk menampilkan Dino pada Map
 @return karakter serta kode warna yang sesuai dengan Dino.
 */
-string Dino :: Render();
+string Dino :: Render()
     {
         return "DI";
     }
@@ -31,4 +31,9 @@ Digunakan untuk mengeluarkan suara dino
 void Dino :: Sounds()
     {
         cout << "Rawr :3" << endl;
+    }
+
+FarmProduct Dino :: getProduct()
+    {
+        return DinoEgg();
     }
