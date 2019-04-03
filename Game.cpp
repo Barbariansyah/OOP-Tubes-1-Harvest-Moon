@@ -6,7 +6,7 @@ LinkedList<FarmAnimal*> Game::animals;
 Truck Game::truck(0,0);
 Well Game::well(0,0);
 Mixer Game::mixer(0,0);
-int Game::nBaris,Game::nKolom;
+int Game::nBaris,Game::nKolom; 
 
 /**
  * Initialize Game.
@@ -61,6 +61,22 @@ void Game::LoadGame(string filename){
                 case 'X':
                     landmap[i][j] = new Barn();
                     break;
+                /*
+                *Tud, ini buat yang grass == true hehe
+                *kalo gabutuh hapus ajaa
+                case '#':
+                    landmap[i][j] = new Grassland();
+                    landmap[i][j].GrowGrass();
+                    break;
+                case '*':
+                    landmap[i][j] = new Coop();
+                    landmap[i][j].GrowGrass();
+                    break;
+                case '@':
+                    landmap[i][j] = new Barn();
+                    landmap[i][j].GrowGrass();
+                    break;
+                */
                 default:
                     break;
             }
