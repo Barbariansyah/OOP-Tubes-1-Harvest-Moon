@@ -20,5 +20,5 @@ Digunakan untuk mendapatkan atribut pos_y oleh objek lain
 */
 int Entity :: GetY()
     {
-        return pos_y;
+        return pos_y; 
     }

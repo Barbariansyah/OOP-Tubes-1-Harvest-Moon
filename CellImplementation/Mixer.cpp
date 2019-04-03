@@ -9,5 +9,5 @@ Mixer :: Mixer(int _x, int _y){
 }
 
 string Mixer :: Render(){
-    return "M";
+    return "M"; 
 }

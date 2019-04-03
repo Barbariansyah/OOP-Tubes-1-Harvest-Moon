@@ -8,5 +8,9 @@ void Land :: GrowGrass(){
 }
 
 void Land :: RemoveGrass(){
-    grass = false;
+    grass = false; 
+}
+
+bool Land :: isGrass(){
+    return grass;
 }
