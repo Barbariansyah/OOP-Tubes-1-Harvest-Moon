@@ -3,6 +3,7 @@
 
 #include "LiveEntity.h"
 #include "AllProduct.h"
+
 //! Kelas Farm Animal
 /*!
     Sebuah Abstract Base Class(ABC) sebagai representasi binatang yang ada pada permainan

@@ -24,7 +24,6 @@ class LiveEntity : public Entity {
         TBD!
         */
         virtual void Move() = 0;
-        virtual void Move(string _direction) = 0;
 
     };
 

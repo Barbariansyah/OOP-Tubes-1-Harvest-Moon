@@ -3,6 +3,7 @@
 
 #include "LiveEntity.h"
 #include "Product.h"
+#include "Game.h"
 #include <string>
 #include <vector>
 

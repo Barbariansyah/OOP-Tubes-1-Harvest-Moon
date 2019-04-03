@@ -135,7 +135,8 @@ void Player :: Talk()
     {
         try
             {
-                FarmAnimal f_a = Game :: getAnimal(pos_x+1,pos_y);
+                FarmAnimal* f_a = &(Game :: getAnimal(pos_x+1,pos_y));
+                (*f_a).Sounds();
             }
         catch(const char* msg)
             {
