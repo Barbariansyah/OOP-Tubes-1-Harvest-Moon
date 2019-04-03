@@ -21,7 +21,12 @@ Digunakan untuk menampilkan goat pada Map
 */
 string Goat :: Render()
     {
-        return "G";
+        if(GetHungerCountdown() <= 0 && GetHungerCountdown() > -5){
+            return "g";
+        }
+        else if (GetHungerCountdown() > 0){
+            return "G";
+        }
     }
 
 //! Implementasi dari fungsi Sounds()
@@ -31,7 +36,7 @@ TBD!
 */
 void Goat :: Sounds()
     {
-        cout << "Baaaaaa" << endl;
+        cout << "Baaaaaaaa :9" << endl;
     }
 
 FarmProduct Goat :: getKilledProduct()

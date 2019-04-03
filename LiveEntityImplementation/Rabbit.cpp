@@ -20,7 +20,12 @@ Digunakan untuk menampilkan rabbit pada Map
 */
 string Rabbit :: Render()
     {
-        return "R";
+        if(GetHungerCountdown() <= 0 && GetHungerCountdown() > -5){
+            return "r";
+        }
+        else if (GetHungerCountdown() > 0){
+            return "R";
+        }
     }
 
 //! Implementasi dari fungsi Sounds()

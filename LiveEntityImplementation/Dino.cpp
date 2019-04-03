@@ -21,7 +21,12 @@ Digunakan untuk menampilkan Dino pada Map
 */
 string Dino :: Render()
     {
-        return "DI";
+        if(GetHungerCountdown() <= 0 && GetHungerCountdown() > -5){
+            return "ḋ";
+        }
+        else if (GetHungerCountdown() > 0){
+            return "Ḋ";
+        }
     }
 
 //! Implementasi dari fungsi Sounds()
@@ -30,7 +35,7 @@ Digunakan untuk mengeluarkan suara dino
 */
 void Dino :: Sounds()
     {
-        cout << "Rawr :3" << endl;
+        cout << "Rawrrrr :<" << endl;
     }
 
 FarmProduct Dino :: getProduct()

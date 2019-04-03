@@ -21,7 +21,12 @@ Digunakan untuk menampilkan cow pada Map
 */
 string Cow :: Render()
     {
-        return "CO";
+        if(GetHungerCountdown() <= 0 && GetHungerCountdown() > -5){
+            return "ċ";
+        }
+        else if (GetHungerCountdown() > 0){
+            return "Č";
+        }
     }
 
 //! Implementasi dari fungsi Sounds()
@@ -31,7 +36,7 @@ TBD!
 */
 void Cow :: Sounds()
     {
-        cout << "Moooooo" << endl;
+        cout << "Moooooo :o" << endl;
     }
 
 FarmProduct Cow :: getProduct()
