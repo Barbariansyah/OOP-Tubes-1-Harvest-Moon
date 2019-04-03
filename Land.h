@@ -30,7 +30,7 @@ class Land : public Cell{
          * Method getter untuk mendapatkan apakah pada sebuah land terdapat grass atau tidak
          * @return boolean apakah terdapat grass atau tidak (bernilai true or false)
          */
-        bool isGrass();
+        bool isGrass(); 
 };
 
 #endif
