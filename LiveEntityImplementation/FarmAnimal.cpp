@@ -25,8 +25,18 @@ int FarmAnimal :: GetHungerCountdown()
         return hunger_countdown;
     }
 
+//! Fungsi move()
+/*!
+Digunakan untuk berpindah secara random
+*/
 void FarmAnimal :: Move()
     {
-        pos_x = 0;
-        pos_y = 0;
+        if (allowed_tiles == 1) // Untuk penghasil telur
+            {
+                pos_x = pos_x + 1;
+            }
+        else
+            {
+                pos_y = pos_y + 1;
+            }
     }
