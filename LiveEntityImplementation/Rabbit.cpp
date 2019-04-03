@@ -32,3 +32,8 @@ void Rabbit :: Sounds()
     {
         cout << "Chill :3" << endl;
     }
+
+FarmProduct Rabbit :: getKilledProduct()
+    {
+        return RabbitMeat();
+    }

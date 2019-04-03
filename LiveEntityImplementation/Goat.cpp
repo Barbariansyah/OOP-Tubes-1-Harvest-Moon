@@ -33,3 +33,13 @@ void Goat :: Sounds()
     {
         cout << "Baaaaaa" << endl;
     }
+
+FarmProduct Goat :: getKilledProduct()
+    {
+        return GoatMeat();
+    }
+
+FarmProduct Goat :: getProduct()
+    {
+        return GoatMilk();
+    }

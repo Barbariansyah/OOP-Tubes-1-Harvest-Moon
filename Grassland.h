@@ -20,7 +20,7 @@ class Grassland : public Land{
          * Implementasi fungsi render dari kelas renderer.
          * @return karakter serta kode warna yang sesuai dengan Grassland.
          */
-        string Render();
+        string Render(); 
 };
 
 #endif
