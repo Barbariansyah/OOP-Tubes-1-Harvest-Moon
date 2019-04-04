@@ -42,7 +42,10 @@ void Duck :: Sounds()
 
 FarmProduct Duck :: GetProduct()
     {
-        return DuckEgg();
+        if (available_egg > 0 )
+            {
+                return DuckEgg();
+            }
     }
 
 FarmProduct Duck :: GetKilledProduct()

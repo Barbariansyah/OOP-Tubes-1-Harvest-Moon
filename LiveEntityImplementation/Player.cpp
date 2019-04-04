@@ -258,80 +258,15 @@ void Player :: Interact()
         
         try
             {
-                Truck* t = &(Game :: getTruck(pos_x+1,pos_y));
-                return;
-
-            }
-        catch(const char* msg)
-            {
-
-            }
-        
-        try
-            {
-                Truck* t = &(Game :: getTruck(pos_x,pos_y+1));
-                return;
-
-            }
-        catch(const char* msg)
-            {
-
-            }
-
-        try
-            {
-                Truck* t = &(Game :: getTruck(pos_x,pos_y-1));
-                return;
-
-            }
-        catch(const char* msg)
-            {
-
-            }
-
-        try
-            {
-                Truck* t = &(Game :: getTruck(pos_x-1,pos_y));
-                return;
-            }
-        catch(const char* msg)
-            {
-
-            }  
-
-        try
-            {
-                Mixer* m = &(Game :: getMixer(pos_x+1,pos_y));
-                return;
-            }
-        catch(const char* msg)
-            {
-
-            }  
-
-        try
-            {
-                Mixer* m = &(Game :: getMixer(pos_x,pos_y+1));
-                return;
-            }
-        catch(const char* msg)
-            {
-
-            }   
-
-        try
-            {
-                Mixer* m = &(Game :: getMixer(pos_x,pos_y-1));
-                return;
-            }
-        catch(const char* msg)
-            {
-
-            }   
-
-        try
-            {
-                Mixer* m = &(Game :: getMixer(pos_x-1,pos_y));
+                Truck t = Game :: getTruck(pos_x,pos_y);
+                t.SetAwayCounter(5);
+                double selling = 0;
+                int i = 0;
+                while (!inventory.isEmpty()){
+                    selling += (*(inventory.get(i))).getPrice();
+                }
+                money += selling;
+                inventory.removeAll();
                 return;
             }
         catch(const char* msg)
@@ -341,7 +276,7 @@ void Player :: Interact()
 
         try
             {
-                Well* w = &(Game :: getWell(pos_x+1,pos_y));
+                Well w = Game :: getWell(pos_x,pos_y);
                 waterContainer = 5;
                 return;
             }
@@ -349,39 +284,6 @@ void Player :: Interact()
             {
 
             }  
-
-        try
-            {
-                Well* w = &(Game :: getWell(pos_x,pos_y+1));
-                waterContainer = 5;
-                return;
-            }
-        catch(const char* msg)
-            {
-
-            }   
-
-        try
-            {
-                Well* w = &(Game :: getWell(pos_x,pos_y-1));
-                waterContainer = 5;
-                return;
-            }
-        catch(const char* msg)
-            {
-
-            }   
-
-        try
-            {
-                Well* w = &(Game :: getWell(pos_x-1,pos_y));
-                waterContainer = 5;
-                return;
-            }
-        catch(const char* msg)
-            {
-
-            }
     }
 
 //! Implementasi dari fungsi Kill()
@@ -495,74 +397,79 @@ Digunakan untuk membuat side product dari farm product
 */
 void Player :: Mix()
     {
-        int x;
-        cout << "What do you want ? " << endl;
-        cout << "1. Beef Rolade " << endl;
-        cout << "2. Pancake " << endl;
-        cout << "3. Chicken Buttermilk" << endl;
-        cout << "4. Goat Cheese" << endl;
-        cin >> x;
-        if (x == 1 ) 
-            {
-                if (BeefRolade :: validateRecipe(inventory))
-                    {
-                        BeefRolade* b_r = new BeefRolade();
-                        inventory.add(b_r);
+        try{
+            Game::getMixer(pos_x,pos_y);
+            int x;
+            cout << "What do you want ? " << endl;
+            cout << "1. Beef Rolade " << endl;
+            cout << "2. Pancake " << endl;
+            cout << "3. Chicken Buttermilk" << endl;
+            cout << "4. Goat Cheese" << endl;
+            cin >> x;
+            if (x == 1 ) 
+                {
+                    if (BeefRolade :: validateRecipe(inventory))
+                        {
+                            BeefRolade* b_r = new BeefRolade();
+                            inventory.add(b_r);
 
-                        LinkedList<Product*> l_p = BeefRolade :: getRecipe();
+                            LinkedList<Product*> l_p = BeefRolade :: getRecipe();
 
-                        for(int i = 0 ; i < l_p.length() ; i++)
-                            {
-                                inventory.remove(l_p.get(i));
-                            }
-                        
-                        
-                    }
-            }
-        else if ( x == 2)
-            {
-                if (Pancake :: validateRecipe(inventory))
-                    {
-                        Pancake* p = new Pancake();
-                        inventory.add(p);
+                            for(int i = 0 ; i < l_p.length() ; i++)
+                                {
+                                    inventory.remove(l_p.get(i));
+                                }
+                            
+                            
+                        }
+                }
+            else if ( x == 2)
+                {
+                    if (Pancake :: validateRecipe(inventory))
+                        {
+                            Pancake* p = new Pancake();
+                            inventory.add(p);
 
-                        LinkedList<Product*> l_p = Pancake :: getRecipe();
+                            LinkedList<Product*> l_p = Pancake :: getRecipe();
 
-                        for(int i = 0 ; i < l_p.length() ; i++)
-                            {
-                                inventory.remove(l_p.get(i));
-                            }
-                    }
-            }
-        else if ( x == 3)
-            {
-                if (ChickenButterMilk :: validateRecipe(inventory))
-                    {
-                        ChickenButterMilk* c_bm = new ChickenButterMilk();
-                        inventory.add(c_bm);
+                            for(int i = 0 ; i < l_p.length() ; i++)
+                                {
+                                    inventory.remove(l_p.get(i));
+                                }
+                        }
+                }
+            else if ( x == 3)
+                {
+                    if (ChickenButterMilk :: validateRecipe(inventory))
+                        {
+                            ChickenButterMilk* c_bm = new ChickenButterMilk();
+                            inventory.add(c_bm);
 
-                        LinkedList<Product*> l_p = ChickenButterMilk :: getRecipe();
+                            LinkedList<Product*> l_p = ChickenButterMilk :: getRecipe();
 
-                        for(int i = 0 ; i < l_p.length() ; i++)
-                            {
-                                inventory.remove(l_p.get(i));
-                            }
-                    }
-            }
-        else
-            {
-                if (GoatCheese :: validateRecipe(inventory))
-                    {
-                        GoatCheese* g_c = new GoatCheese();
-                        inventory.add(g_c);
+                            for(int i = 0 ; i < l_p.length() ; i++)
+                                {
+                                    inventory.remove(l_p.get(i));
+                                }
+                        }
+                }
+            else
+                {
+                    if (GoatCheese :: validateRecipe(inventory))
+                        {
+                            GoatCheese* g_c = new GoatCheese();
+                            inventory.add(g_c);
 
-                        LinkedList<Product*> l_p = GoatCheese :: getRecipe();
+                            LinkedList<Product*> l_p = GoatCheese :: getRecipe();
 
-                        for(int i = 0 ; i < l_p.length() ; i++)
-                            {
-                                inventory.remove(l_p.get(i));
-                            }
-                    }
-            }
+                            for(int i = 0 ; i < l_p.length() ; i++)
+                                {
+                                    inventory.remove(l_p.get(i));
+                                }
+                        }
+                }
+        }catch(const char* msg){
+            cout << msg << endl;
+        }
     }
 

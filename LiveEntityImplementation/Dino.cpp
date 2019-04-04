@@ -40,7 +40,10 @@ void Dino :: Sounds()
 
 FarmProduct Dino :: GetProduct()
     {
-        return DinoEgg();
+        if (available_egg > 0 )
+            {
+                return DinoEgg();
+            }
     }
 
 FarmProduct Dino :: GetKilledProduct()

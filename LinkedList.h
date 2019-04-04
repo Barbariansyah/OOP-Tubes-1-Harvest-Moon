@@ -114,6 +114,17 @@ class LinkedList{
         T& get(int index){
             return data[index];
         }
+        /**
+         * Mengosongkan linked list
+         */
+        void removeAll(){
+            if (!isEmpty()){
+                n = 0;
+                T *newData = new T[n];
+                delete [] data;
+                data = newData;
+            }
+        }
 };
 
 #endif

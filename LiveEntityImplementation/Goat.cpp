@@ -46,5 +46,8 @@ FarmProduct Goat :: GetKilledProduct()
 
 FarmProduct Goat :: GetProduct()
     {
-        return GoatMilk();
+        if (available_milk > 0)
+            {
+                return GoatMilk();
+            }
     }

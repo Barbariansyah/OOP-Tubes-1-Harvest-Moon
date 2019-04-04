@@ -152,6 +152,9 @@ bool Game::isValidEntity(int x, int y){
 Entity& Game::getEntity(int x, int y){
     return *(entitymap[x][y]);
 }
+bool isAdjacent(int x1, int y1, int x2, int y2){
+    return ((x2 == x1+1 || x2 == x1-1) && y2 == y1) || ((y2 == y1+1 || y2 == y1-1) && x2 == x1);
+}
 /**
  * Method untuk mengakses farmanimal yang memiliki posisi x,y.
  * @param x posisi x farmanimal, dimulai dari 0 
@@ -164,32 +167,41 @@ FarmAnimal& Game::getAnimal(int x, int y){
             return *(animals.get(i));
         }
     }
-    throw "Not Found";
+    throw "No animal at the desired location";
 }
 /**
  * Method untuk mengakses instans truck jika berada di dekat posisi x,y.
  * @param x posisi x akses, digunakan untuk menentukan apakah berada di dekat truck 
  * @param y posisi y akses, digunakan untuk menentukan apakah berada di dekat truck
- * @return objek truck pada jika berada di dekat x,y. Null jika tidak berada di dekat x,y
+ * @return objek truck pada jika berada di dekat x,y. throws exception jika tidak berada di dekat x,y
  */
 Truck& Game::getTruck(int x, int y){
-    return truck;
+    if (isAdjacent(x,y,truck.GetX(),truck.GetY()))
+        return truck;
+    else
+        throw "Truck is not nearby";
 }
 /**
  * Method untuk mengakses instans well jika berada di dekat posisi x,y.
  * @param x posisi x akses, digunakan untuk menentukan apakah berada di dekat well 
  * @param y posisi y akses, digunakan untuk menentukan apakah berada di dekat well
- * @return objek well pada jika berada di dekat x,y. Null jika tidak berada di dekat x,y
+ * @return objek well pada jika berada di dekat x,y. throws exception jika tidak berada di dekat x,y
  */
 Well& Game::getWell(int x, int y){
-    return well;
+    if (isAdjacent(x,y,well.GetX(),well.GetY()))
+        return well;
+    else
+        throw "Well is not nearby";
 }
 /**
  * Method untuk mengakses instans mixer jika berada di dekat posisi x,y.
  * @param x posisi x akses, digunakan untuk menentukan apakah berada di dekat mixer 
  * @param y posisi y akses, digunakan untuk menentukan apakah berada di dekat mixer
- * @return objek mixer pada jika berada di dekat x,y. Null jika tidak berada di dekat x,y
+ * @return objek mixer pada jika berada di dekat x,y. throws exception jika tidak berada di dekat x,y
  */
 Mixer& Game::getMixer(int x, int y){
-    return mixer;
+    if (isAdjacent(x,y,mixer.GetX(),mixer.GetY()))
+        return mixer;
+    else
+        throw "Mixer is not nearby";
 }

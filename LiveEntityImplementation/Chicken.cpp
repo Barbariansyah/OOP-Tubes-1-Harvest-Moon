@@ -41,7 +41,10 @@ void Chicken :: Sounds()
 
 FarmProduct Chicken :: GetProduct()
     {
-        return ChickenEgg();
+        if (available_egg > 0 )
+            {
+                return ChickenEgg();
+            }
     }
 
 FarmProduct Chicken :: GetKilledProduct()

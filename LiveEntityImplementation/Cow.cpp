@@ -41,7 +41,10 @@ void Cow :: Sounds()
 
 FarmProduct Cow :: GetProduct()
     {
-        return CowMilk();
+        if (available_milk > 0)
+            {
+                return CowMilk();
+            }
     }
 
 FarmProduct Cow :: GetKilledProduct()
