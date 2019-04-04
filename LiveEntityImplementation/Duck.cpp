@@ -22,7 +22,12 @@ Digunakan untuk menampilkan duck pada Map
 */
 string Duck :: Render()
     {
-        return "DU";
+        if(GetHungerCountdown() <= 0 && GetHungerCountdown() > -5){
+            return "d";
+        }
+        else if (GetHungerCountdown() > 0){
+            return "D";
+        }
     }
 
 //! Implementasi dari fungsi Sounds()
@@ -32,7 +37,7 @@ TBD!
 */
 void Duck :: Sounds()
     {
-        cout << "Kwek Kwek" << endl;
+        cout << "Wkwkwkwkwk :D" << endl;
     }
 
 FarmProduct Duck :: GetProduct()

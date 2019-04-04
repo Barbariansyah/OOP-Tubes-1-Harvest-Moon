@@ -21,7 +21,12 @@ Digunakan untuk menampilkan Chicken pada Map
 */
 string Chicken :: Render()
     {
-        return "CHI";
+        if(GetHungerCountdown() <= 0 && GetHungerCountdown() > -6){
+            return "c";
+        }
+        else if (GetHungerCountdown() > 0){
+            return "C";
+        }
     }
 
 //! Implementasi dari fungsi Sounds()
@@ -31,7 +36,7 @@ TBD!
 */
 void Chicken :: Sounds()
     {
-        cout << "Kukuruyukkkk" << endl;
+        cout << "Kukuruyukkkk :v" << endl;
     }
 
 FarmProduct Chicken :: GetProduct()
