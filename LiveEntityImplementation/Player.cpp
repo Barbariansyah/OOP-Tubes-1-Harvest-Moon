@@ -53,7 +53,15 @@ void Player :: SetWaterContainer(int _waterContainer)
 Mengubah water_container dengan _waterContainer
 */
     {
-        this -> water_container = _waterContainer;
+        if (_waterContainer > 5 )
+            {
+                this -> water_container = 5;
+            }
+        else
+            {
+                this -> water_container = _waterContainer;
+            }
+
     }
 
 void Player :: SetMoney(double _money)
@@ -334,6 +342,7 @@ void Player :: Interact()
         try
             {
                 Well* w = &(Game :: getWell(pos_x+1,pos_y));
+                waterContainer = 5;
                 return;
             }
         catch(const char* msg)
@@ -344,6 +353,7 @@ void Player :: Interact()
         try
             {
                 Well* w = &(Game :: getWell(pos_x,pos_y+1));
+                waterContainer = 5;
                 return;
             }
         catch(const char* msg)
@@ -354,6 +364,7 @@ void Player :: Interact()
         try
             {
                 Well* w = &(Game :: getWell(pos_x,pos_y-1));
+                waterContainer = 5;
                 return;
             }
         catch(const char* msg)
@@ -364,6 +375,7 @@ void Player :: Interact()
         try
             {
                 Well* w = &(Game :: getWell(pos_x-1,pos_y));
+                waterContainer = 5;
                 return;
             }
         catch(const char* msg)

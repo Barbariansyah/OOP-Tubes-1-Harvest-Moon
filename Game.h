@@ -61,12 +61,19 @@ class Game {
          */
         static Land& getLand(int x, int y);
         /**
-         * Method untuk menentukan apakah ada entity di atas/bawah/kanan/kiri posisi x, y
-         * @param x posisi x untuk ditentukan apakah dekat entity, dimulai dari 0, harus selalu dalam ukuran map
-         * @param y posisi y untuk ditentukan apakah dekat entity, dimulai dari 0, harus selalu dalam ukuran map
-         * @return apakah posisi x,y berada di dekat entity
+         * Method untuk menentukan apakah posisi x, y ada dalam map.
+         * @param x , dimulai dari 0
+         * @param y , dimulai dari 0
+         * @return apakah posisi x, y valid
          */
-        static bool isNearEntity(int x, int y);
+        static bool isValidPosition(int x, int y);
+        /**
+         * Method untuk menentukan apakah ada entity di posisi x, y
+         * @param x posisi x untuk ditentukan apakah terdapat entity, dimulai dari 0
+         * @param y posisi y untuk ditentukan apakah terdapat entity, dimulai dari 0
+         * @return apakah posisi x,y terdapat entity
+         */
+        static bool isValidEntity(int x, int y);
         /**
          * Method untuk mengakses entity pada posisi x, y.
          * @param x posisi x entity, dimulai dari 0, harus selalu dalam ukuran map

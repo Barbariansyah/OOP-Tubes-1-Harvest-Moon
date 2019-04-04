@@ -61,9 +61,6 @@ void Game::LoadGame(string filename){
                 case 'X':
                     landmap[i][j] = new Barn();
                     break;
-                /*
-                *Tud, ini buat yang grass == true hehe
-                *kalo gabutuh hapus ajaa
                 case '#':
                     landmap[i][j] = new Grassland();
                     landmap[i][j].GrowGrass();
@@ -76,7 +73,6 @@ void Game::LoadGame(string filename){
                     landmap[i][j] = new Barn();
                     landmap[i][j].GrowGrass();
                     break;
-                */
                 default:
                     break;
             }
@@ -130,13 +126,22 @@ Land& Game::getLand(int x, int y){
     return *(landmap[x][y]);
 }
 /**
- * Method untuk menentukan apakah ada entity di atas/bawah/kanan/kiri posisi x, y
- * @param x posisi x untuk ditentukan apakah dekat entity, dimulai dari 0, harus selalu dalam ukuran map
- * @param y posisi y untuk ditentukan apakah dekat entity, dimulai dari 0, harus selalu dalam ukuran map
- * @return apakah posisi x,y berada di dekat entity
+ * Method untuk menentukan apakah posisi x, y ada dalam map.
+ * @param x , dimulai dari 0
+ * @param y , dimulai dari 0
+ * @return apakah posisi x, y valid
  */
-bool Game::isNearEntity(int x, int y){
-    return (entitymap[x+1][y] || entitymap[x-1][y] || entitymap[x][y-1] || entitymap[x][y+1] );
+bool Game::isValidPosition(int x, int y){
+    return (x < nBaris && y < nKolom);
+}
+/**
+ * Method untuk menentukan apakah ada entity di posisi x, y
+ * @param x posisi x untuk ditentukan apakah terdapat entity, dimulai dari 0
+ * @param y posisi y untuk ditentukan apakah terdapat entity, dimulai dari 0
+ * @return apakah posisi x,y terdapat entity
+ */
+bool Game::isValidEntity(int x, int y){
+    return entitymap[x][y] != nullptr;
 }
 /**
  * Method untuk mengakses entity pada posisi x, y.
