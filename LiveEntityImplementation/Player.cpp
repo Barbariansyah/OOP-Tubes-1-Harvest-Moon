@@ -3,6 +3,7 @@ using namespace std;
 
 #include "../Player.h"
 #include "../FarmAnimal.h"
+#include "../Land.h"
 
 //! Implementasi Kelas Player /*! */
 
@@ -140,7 +141,37 @@ void Player :: Talk()
             }
         catch(const char* msg)
             {
-                cerr << msg << endl;
+
+            }
+        
+        try
+            {
+                FarmAnimal* f_a = &(Game :: getAnimal(pos_x,pos_y+1));
+                (*f_a).Sounds();
+            }
+        catch(const char* msg)
+            {
+
+            }
+
+        try
+            {
+                FarmAnimal* f_a = &(Game :: getAnimal(pos_x,pos_y-1));
+                (*f_a).Sounds();
+            }
+        catch(const char* msg)
+            {
+
+            }
+        
+        try
+            {
+                FarmAnimal* f_a = &(Game :: getAnimal(pos_x-1,pos_y));
+                (*f_a).Sounds();
+            }
+        catch(const char* msg)
+            {
+
             }
     }
 
@@ -152,14 +183,22 @@ untuk melakukan interaksi dengan Facility
 */
 void Player :: Interact()
     {
-        // TBD
-        // Menunggu fungsi mencari entitas di sekitar player
-        /* Case 1 : 
-           Jika bertemu dengan FarmAnimal, akan check apakah hewan tersebut termasuk kelas apa
-           - EggPFA, akan cek available_eggs
-           - MilkPFA, akan cek available_milk */
-        /* Case 2 :
-           Jika bertemu dengan Facility, akan menjalankan fungsi dari facilitynya */
+        try
+            {
+                FarmAnimal* f_a = &(Game :: getAnimal(pos_x+1, pos_y));
+                try
+                    {
+                        (*f_a).GetProduct();
+                    }
+                catch(const char* msg)
+                    {
+
+                    }
+            }
+        catch(const char* msg)
+            {
+
+            }
         
     }
 
@@ -170,10 +209,77 @@ TBD!
 */
 void Player :: Kill()
     {
-        // TBD
-        // Menunggu fungsi mencari entitas di sekitar player
-        /* Jika bertemu dengan MeatPFA, secara otomatis akan membunuh
-           hewan tersebut, dan menambahkan product daging ke inventory */
+        try
+            {
+                FarmAnimal* f_a = &(Game :: getAnimal(pos_x+1,pos_y));
+                try
+                    {
+                        FarmProduct fp = (*f_a).GetKilledProduct();
+                        inventory.add(&fp);
+                    }
+                catch(const char* msg)
+                    {
+
+                    }
+            }
+        catch(const char* msg)
+            {
+
+            }
+        
+        try
+            {
+                FarmAnimal* f_a = &(Game :: getAnimal(pos_x,pos_y+1));
+                try
+                    {
+                        FarmProduct fp = (*f_a).GetKilledProduct();
+                        inventory.add(&fp);
+                    }
+                catch(const char* msg)
+                    {
+
+                    }
+            }
+        catch(const char* msg)
+            {
+
+            }
+
+        try
+            {
+                FarmAnimal* f_a = &(Game :: getAnimal(pos_x,pos_y-1));
+                try
+                    {
+                        FarmProduct fp = (*f_a).GetKilledProduct();
+                        inventory.add(&fp);
+                    }
+                catch(const char* msg)
+                    {
+
+                    }
+            }
+        catch(const char* msg)
+            {
+
+            }
+        
+        try
+            {
+                FarmAnimal* f_a = &(Game :: getAnimal(pos_x-1,pos_y));
+                try
+                    {
+                        FarmProduct fp = (*f_a).GetKilledProduct();
+                        inventory.add(&fp);
+                    }
+                catch(const char* msg)
+                    {
+
+                    }
+            }
+        catch(const char* msg)
+            {
+
+            }
     }
 
 //! Implementasi dari fungsi Grow()
@@ -182,10 +288,19 @@ Digunakan untuk menumbuhkan rumput pada cell
 */
 void Player :: Grow()
     {
-        // TBD
-        // Menunggu fungsi mencari Land di tempat sekarang
-        /* Jika sudah ada rumput, tidak melakukan apa-apa,
-           sebaliknya akan memanggil fungsi Land.GrowGrass */
+        if (water_container > 0 )
+            {
+                Land* la = &(Game :: getLand(pos_x,pos_y));
+                if (!(*la).isGrass())
+                    {
+                        (*la).GrowGrass();
+                    }
+            }
+        else 
+            {
+                cout << "Water out of stock" << endl;
+            }
+
     }
 
 //! Implementasi dari fungsi Mix()
@@ -194,8 +309,19 @@ Digunakan untuk membuat side product dari farm product
 */
 void Player :: Mix()
     {
-        // TBD
-        // Menunggu fungsi mencari entitas di tempat sekitarnya
-        /* Akan menggunakan fungsi masing-masing dari facility jika ada di sekitarnya */
+        int x;
+        cout << "What do you want ? " << endl;
+        cout << "1. Beef Rolade " << endl;
+        cout << "2. Pancake " << endl;
+        cout << "3. Chicken Buttermilk" << endl;
+        cout << "4. Goat Cheese" << endl;
+        cin >> x;
+        if (x == 1 ) 
+            {
+                if (BeefRolade :: validateRecipe(inventory))
+                    {
+
+                    }
+            }
     }
 

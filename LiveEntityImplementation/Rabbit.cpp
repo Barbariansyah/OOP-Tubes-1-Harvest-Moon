@@ -33,7 +33,12 @@ void Rabbit :: Sounds()
         cout << "Chill :3" << endl;
     }
 
-FarmProduct Rabbit :: getKilledProduct()
+FarmProduct Rabbit :: GetKilledProduct()
     {
         return RabbitMeat();
+    }
+
+FarmProduct Rabbit :: GetProduct()
+    {
+        throw "Can't be interracted";
     }

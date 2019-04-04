@@ -33,7 +33,9 @@ class Rabbit : public MeatPFA {
         TBD!
         */
         void Sounds();
-        FarmProduct getKilledProduct();
+        
+        FarmProduct GetProduct();
+        FarmProduct GetKilledProduct();
 
 };
 

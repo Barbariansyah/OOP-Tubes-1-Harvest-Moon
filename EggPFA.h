@@ -31,7 +31,6 @@ class EggPFA : virtual public FarmAnimal {
         */
         void SetAvailableEgg(int _available_egg);
         
-        virtual FarmProduct getProduct() = 0;
 };
 
 #endif

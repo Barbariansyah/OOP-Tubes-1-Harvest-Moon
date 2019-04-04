@@ -34,12 +34,12 @@ void Chicken :: Sounds()
         cout << "Kukuruyukkkk" << endl;
     }
 
-FarmProduct Chicken :: getProduct()
+FarmProduct Chicken :: GetProduct()
     {
         return ChickenEgg();
     }
 
-FarmProduct Chicken :: getKilledProduct()
+FarmProduct Chicken :: GetKilledProduct()
     {
         return ChickenMeat();
     } 

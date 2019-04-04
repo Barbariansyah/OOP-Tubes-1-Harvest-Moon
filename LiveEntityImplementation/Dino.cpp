@@ -33,7 +33,12 @@ void Dino :: Sounds()
         cout << "Rawr :3" << endl;
     }
 
-FarmProduct Dino :: getProduct()
+FarmProduct Dino :: GetProduct()
     {
         return DinoEgg();
+    }
+
+FarmProduct Dino :: GetKilledProduct()
+    {
+        throw "Can't be killed";
     }

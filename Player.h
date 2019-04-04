@@ -4,8 +4,8 @@
 #include "LiveEntity.h"
 #include "Product.h"
 #include "Game.h"
+#include "LinkedList.h"
 #include <string>
-#include <vector>
 
 using namespace std;
 
@@ -22,7 +22,7 @@ class Player : public LiveEntity {
         string name; /*!< sebuah string untuk merepresentasikan nama player */
         int water_container; /*!< sebuah integer untuk merepresentasikan kapasitas air yang dimiliki player */
         double money; /*!< sebuah double untuk merepresentasikan uang yang dimiliki player */
-        vector<Product> inventory; /*!< sebuah vector of Product untuk merepresentasikan inventory player */
+        LinkedList<Product*> inventory; /*!< sebuah vector of Product untuk merepresentasikan inventory player */
 
     public :
 
