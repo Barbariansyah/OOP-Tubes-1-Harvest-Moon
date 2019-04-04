@@ -3,7 +3,9 @@
 int main(){
     Game::Initialize("");
     Game::LoadGame("test.txt");
-    Game::DrawScreen();
-    // cout << Game::getLand(0,0).Render();
+    while (true){
+        Game::Tick();
+        Game::DrawScreen();
+    }
     return 0;
 }

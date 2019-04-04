@@ -17,7 +17,6 @@ class Chicken : public MeatPFA, public EggPFA {
 
         //! Konstruktor dari kelas Chicken
         /*!
-        TBD!
         */
         Chicken(int _pos_x , int _pos_y);
 
@@ -31,7 +30,6 @@ class Chicken : public MeatPFA, public EggPFA {
         //! Implementasi dari fungsi Sounds()
         /*!
         Digunakan untuk mengeluarkan suara chicken
-        TBD!
         */
         void Sounds();
 

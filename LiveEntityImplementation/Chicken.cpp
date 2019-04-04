@@ -10,8 +10,9 @@ Chicken :: Chicken(int _pos_x , int _pos_y)
     {
         pos_x = _pos_x;
         pos_y = _pos_y;
-        available_egg = 0;
+        availableProduct = false;
         hunger_countdown = 5;
+        allowed_tiles = "Coop";
     }
 
 //! Implementasi dari fungsi Render()
@@ -41,13 +42,21 @@ void Chicken :: Sounds()
 
 FarmProduct Chicken :: GetProduct()
     {
-        if (available_egg > 0 )
+        cout << "Made it here" << endl;
+        if (availableProduct)
             {
-                return ChickenEgg();
+                ChickenEgg ck;
+                cout << "Made it here 2" << endl;
+                return ck;
             }
+        else
+        {
+            throw "Egg not available";
+        }
     }
 
 FarmProduct Chicken :: GetKilledProduct()
     {
-        return ChickenMeat();
+        ChickenEgg ck;
+        return ck;
     } 

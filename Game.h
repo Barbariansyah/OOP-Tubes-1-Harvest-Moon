@@ -21,6 +21,7 @@ class Game {
         static Truck truck;
         static Well well;
         static Mixer mixer;
+        static Player player;
         static int nBaris,nKolom;
         Game(){}                           /*!< Menandakan Game adalah kelas statik sehingga tidak dapat diinstantiasi*/
     public:
@@ -78,9 +79,17 @@ class Game {
          * Method untuk mengakses entity pada posisi x, y.
          * @param x posisi x entity, dimulai dari 0, harus selalu dalam ukuran map
          * @param y posisi y entity, dimulai dari 0, harus selalu dalam ukuran map
-         * @return objek entity pada posisi x, y. Null jika tidak ada
+         * @return objek entity pada posisi x, y
          */
         static Entity& getEntity(int x, int y);
+        /**
+         * Method untuk mengubah entitymap pada posisi x,y menjadi pointer entity E.
+         * @param x posisi x entity, dimulai dari 0, harus selalu dalam ukuran map
+         * @param y posisi y entity, dimulai dari 0, harus selalu dalam ukuran map
+         * @param E pointer entity, nullptr jika tidak ada
+         * @return objek entity pada posisi x, y
+         */
+        static void setEntity(int x, int y, Entity* E);
         /**
          * Method untuk mengakses farmanimal yang memiliki posisi x,y.
          * @param x posisi x farmanimal, dimulai dari 0 

@@ -1,10 +1,10 @@
-#ifndef PLAYER_H_
-#define PLAYER_H_
+#ifndef PLAYER_H
+#define PLAYER_H
 
 #include "LiveEntity.h"
 #include "Product.h"
-#include "Game.h"
 #include "LinkedList.h"
+
 #include <string>
 
 using namespace std;
@@ -85,7 +85,7 @@ class Player : public LiveEntity {
         Digunakan untuk melakukan perpindahan pada map 
         TBD!
         */
-        void Move(string _direction);
+        void Move();
         //! Implementasi dari fungsi Talk()
         /*!
         Digunakan untuk melakukan interaksi dengan animal
@@ -122,6 +122,8 @@ class Player : public LiveEntity {
         TBD!
         */
         void Mix();
+
+        void PrintInventory();
 
 };
 

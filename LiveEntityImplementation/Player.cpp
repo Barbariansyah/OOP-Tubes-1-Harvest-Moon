@@ -2,9 +2,7 @@
 using namespace std;
 
 #include "../Player.h"
-#include "../FarmAnimal.h"
-#include "../Land.h"
-#include "../AllProduct.h"
+#include "../Game.h"
 
 //! Implementasi Kelas Player /*! */
 
@@ -20,6 +18,10 @@ Inisialisasi money = 0
         this -> name = "Player";
         this -> water_container = 0;
         this -> money = 0;
+        LinkedList<Product*> inventory;
+        inventory.add(new ChickenEgg());
+        pos_x = 0;
+        pos_y = 0;
     }
 
 Player :: Player(string _name , int _water_container , double _money)
@@ -28,12 +30,16 @@ Player :: Player(string _name , int _water_container , double _money)
 Digunakan untuk membuat objek dari kelas ini
 Inisialisasi name dengan = _name
 Inisialisasi water_container = _water_container
-Inisialisasi money = _monet
+Inisialisasi money = _money
 */    
     {   
         this -> name = _name;
         this -> water_container = _water_container;
         this -> money = _money;
+        LinkedList<Product*> inventory;
+        inventory.add(new ChickenEgg());
+        pos_x = 4;
+        pos_y = 4;
     }
 
 void Player :: SetName(string _name)
@@ -114,39 +120,44 @@ string Player :: Render()
 /*!
 Digunakan untuk melakukan perpindahan pada map 
 */
-void Player :: Move(string _direction)
+void Player :: Move()
     {
-        if ( _direction.compare("UP") == 0 )
+        string _direction;
+        cin >> _direction;
+        Game::setEntity(pos_x,pos_y,nullptr);
+        if ( _direction == "UP" )
             {
                 if (Game::isValidPosition(pos_x-1, pos_y)){
-                    if (Game::isValidEntity(pos_x-1, pos_y))
+                    if (!Game::isValidEntity(pos_x-1, pos_y)){
                         this -> pos_x = this -> pos_x - 1;
+                    }
                 }
             }
         else 
-        if ( _direction.compare("DOWN") == 0 )
+        if ( _direction == "DOWN" )
             {
                 if (Game::isValidPosition(pos_x+1, pos_y)){
-                    if (Game::isValidEntity(pos_x+1, pos_y))
+                    if (!Game::isValidEntity(pos_x+1, pos_y))
                         this -> pos_x = this -> pos_x + 1;
                 }
             }
         else
-        if ( _direction.compare("LEFT") == 0 )
+        if ( _direction == "LEFT" )
             {
                 if (Game::isValidPosition(pos_x, pos_y-1)){
-                    if (Game::isValidEntity(pos_x, pos_y-1))
+                    if (!Game::isValidEntity(pos_x, pos_y-1))
                         this -> pos_y = this -> pos_y - 1;
                 }
             }
         else
-        if ( _direction.compare("RIGHT") == 0 )
+        if ( _direction == "RIGHT" )
             {
                 if (Game::isValidPosition(pos_x, pos_y+1)){
-                    if (Game::isValidEntity(pos_x, pos_y+1))
+                    if (!Game::isValidEntity(pos_x, pos_y+1))
                         this -> pos_y = this -> pos_y + 1;
                 }
-            }        
+            } 
+        Game::setEntity(pos_x,pos_y,this);       
     }
 
 //! Implementasi dari fungsi Talk()
@@ -211,7 +222,7 @@ void Player :: Interact()
         try
             {
                 FarmAnimal* f_a = &(Game :: getAnimal(pos_x+1,pos_y));
-                FarmProduct fp = (*f_a).GetProduct();
+                FarmProduct fp = f_a->GetProduct();
                 inventory.add(&fp);
                 return;
             }
@@ -223,7 +234,7 @@ void Player :: Interact()
         try
             {
                 FarmAnimal* f_a = &(Game :: getAnimal(pos_x,pos_y+1));
-                FarmProduct fp = (*f_a).GetProduct();
+                FarmProduct fp = f_a->GetProduct();
                 inventory.add(&fp);
                 return;
             }
@@ -235,7 +246,7 @@ void Player :: Interact()
         try
             {
                 FarmAnimal* f_a = &(Game :: getAnimal(pos_x,pos_y-1));
-                FarmProduct fp = (*f_a).GetProduct();
+                FarmProduct fp = f_a->GetProduct();
                 inventory.add(&fp);
                 return;
             }
@@ -247,7 +258,7 @@ void Player :: Interact()
         try
             {
                 FarmAnimal* f_a = &(Game :: getAnimal(pos_x-1,pos_y));
-                FarmProduct fp = (*f_a).GetProduct();
+                FarmProduct fp = f_a->GetProduct();
                 inventory.add(&fp);
                 return;
             }
@@ -263,7 +274,7 @@ void Player :: Interact()
                 double selling = 0;
                 int i = 0;
                 while (!inventory.isEmpty()){
-                    selling += (*(inventory.get(i))).getPrice();
+                    selling += inventory.get(i)->getPrice();
                 }
                 money += selling;
                 inventory.removeAll();
@@ -277,7 +288,7 @@ void Player :: Interact()
         try
             {
                 Well w = Game :: getWell(pos_x,pos_y);
-                waterContainer = 5;
+                water_container = 5;
                 return;
             }
         catch(const char* msg)
@@ -382,6 +393,7 @@ void Player :: Grow()
                 if (!(*la).isGrass())
                     {
                         (*la).GrowGrass();
+                        water_container--;
                     }
             }
         else 
@@ -473,3 +485,14 @@ void Player :: Mix()
         }
     }
 
+void Player :: PrintInventory()
+    {
+        if (inventory.length() == 0){
+            cout << "Inventory Empty" << endl;
+        }else{
+            for (int i = 0 ; i < inventory.length() ; i++)
+                {
+                    cout << inventory.get(i)->getName() << endl;
+                }
+        }
+    }

@@ -11,6 +11,7 @@ Rabbit :: Rabbit(int _pos_x , int _pos_y)
         pos_x = _pos_x;
         pos_y = _pos_y;
         hunger_countdown = 5;
+        allowed_tiles = "Barn";
     }
 
 //! Implementasi dari fungsi Render()
@@ -40,7 +41,8 @@ void Rabbit :: Sounds()
 
 FarmProduct Rabbit :: GetKilledProduct()
     {
-        return RabbitMeat();
+        RabbitMeat rm;
+        return rm;
     }
 
 FarmProduct Rabbit :: GetProduct()

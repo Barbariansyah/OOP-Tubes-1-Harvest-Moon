@@ -14,3 +14,7 @@ void Land :: RemoveGrass(){
 bool Land :: isGrass(){
     return grass;
 }
+
+string Land :: getType(){
+    return type;
+}

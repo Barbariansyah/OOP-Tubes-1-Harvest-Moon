@@ -15,7 +15,8 @@ class FarmAnimal : public LiveEntity {
     protected :
 
         int hunger_countdown;  /*!< sebuah integer untuk merepresentasikan countdown lapar */
-        int allowed_tiles;
+        string allowed_tiles; /*!< Grassland, Barn, Coop */
+        bool availableProduct;
 
     public :
 
@@ -32,7 +33,7 @@ class FarmAnimal : public LiveEntity {
         Pure virtual karena akan diimplementasikan di kelas riil
         TBD!
         */
-        virtual void Sounds();
+        virtual void Sounds() = 0;
 
         //! Fungsi Getter GetHungerCountdown()
         /*!
@@ -40,6 +41,12 @@ class FarmAnimal : public LiveEntity {
         @return jumlah tick kelaparan, positif berarti kenyang, nol lapar, -5 mati
         */
         int GetHungerCountdown();
+
+        //! Fungsi untuk mengurangi hunger countdown
+        /*!
+        Fungsi untuk mengurangi hunger countdown
+        */
+        void ReduceHungerCountdown();
 
         //! Fungsi move()
         /*!
@@ -52,7 +59,7 @@ class FarmAnimal : public LiveEntity {
         Getter untuk mendapatkan product dari hewan yang tidak dibunuh
         @return product dari tiap hewan
         */
-        virtual FarmProduct GetProduct();
+        virtual FarmProduct GetProduct() = 0;
 
         
         //! Fungsi Getter getKilledProduct()
@@ -60,7 +67,7 @@ class FarmAnimal : public LiveEntity {
         Getter untuk mendapatkan product dari hewan yang dibunuh
         @return product dari hewan yang dibunuh
         */
-        virtual FarmProduct GetKilledProduct();
+        virtual FarmProduct GetKilledProduct() = 0;
 
 };
 

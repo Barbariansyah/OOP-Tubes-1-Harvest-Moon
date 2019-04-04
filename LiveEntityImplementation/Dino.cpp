@@ -10,8 +10,9 @@ Dino :: Dino(int _pos_x , int _pos_y)
     {
         pos_x = _pos_x;
         pos_y = _pos_y;
-        available_egg = 0;
+        availableProduct = false;
         hunger_countdown = 5;
+        allowed_tiles = "Coop";
     }
 
 //! Implementasi dari fungsi Render()
@@ -40,10 +41,15 @@ void Dino :: Sounds()
 
 FarmProduct Dino :: GetProduct()
     {
-        if (available_egg > 0 )
+        if (availableProduct)
             {
-                return DinoEgg();
+                DinoEgg de; 
+                return de;
             }
+        else
+        {
+            throw "Egg not available";
+        }
     }
 
 FarmProduct Dino :: GetKilledProduct()

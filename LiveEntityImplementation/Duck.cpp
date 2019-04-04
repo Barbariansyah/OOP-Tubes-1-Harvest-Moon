@@ -11,8 +11,9 @@ Duck :: Duck(int _pos_x , int _pos_y)
     {
         pos_x = _pos_x;
         pos_y = _pos_y;
-        available_egg = 0;
+        availableProduct = false;
         hunger_countdown = 5;
+        allowed_tiles = "Coop";
     }
 
 //! Implementasi dari fungsi Render()
@@ -42,13 +43,19 @@ void Duck :: Sounds()
 
 FarmProduct Duck :: GetProduct()
     {
-        if (available_egg > 0 )
+        if (availableProduct)
             {
-                return DuckEgg();
+                DuckEgg de;
+                return de;
             }
+        else
+        {
+            throw "Egg not available";
+        }
     }
 
 FarmProduct Duck :: GetKilledProduct()
     {
-        return DuckMeat();
+        DuckEgg de;
+        return de;
     }

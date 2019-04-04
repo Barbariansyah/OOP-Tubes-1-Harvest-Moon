@@ -6,6 +6,7 @@ LinkedList<FarmAnimal*> Game::animals;
 Truck Game::truck(0,0);
 Well Game::well(0,0);
 Mixer Game::mixer(0,0);
+Player Game::player("",5,0);
 int Game::nBaris,Game::nKolom; 
 
 /**
@@ -20,6 +21,7 @@ void Game::Initialize(string filename){
     truck = Truck(9,9);
     well = Well(9,8);
     mixer = Mixer(9,7);
+    player = Player("Dika",5,0);
 
     landmap = new Land**[nBaris];
     entitymap = new Entity**[nBaris];
@@ -32,9 +34,14 @@ void Game::Initialize(string filename){
         }
     }
 
+    Chicken* ck = new Chicken(0,0);
+
     entitymap[9][9] = &truck;
     entitymap[9][8] = &well;
     entitymap[9][7] = &mixer;
+    entitymap[4][4] = &player;
+    entitymap[0][0] = ck;
+    animals.add(ck);
 }
 /**
  * Method load game yang akan dipanggil oleh konstruktor.
@@ -63,15 +70,15 @@ void Game::LoadGame(string filename){
                     break;
                 case '#':
                     landmap[i][j] = new Grassland();
-                    landmap[i][j].GrowGrass();
+                    landmap[i][j]->GrowGrass();
                     break;
                 case '*':
                     landmap[i][j] = new Coop();
-                    landmap[i][j].GrowGrass();
+                    landmap[i][j]->GrowGrass();
                     break;
                 case '@':
                     landmap[i][j] = new Barn();
-                    landmap[i][j].GrowGrass();
+                    landmap[i][j]->GrowGrass();
                     break;
                 default:
                     break;
@@ -96,7 +103,36 @@ void Game::SaveGame(string filename){
  * berhubungan dengan game tick.
  */
 void Game::Tick(){
-    //TODO
+    //Menerima input command
+    string cmd;
+    cout << "> ";
+    cin >> cmd;
+    if (cmd == "MOVE") {
+        player.Move();
+    }else if (cmd == "INTERACT") {
+        player.Interact();
+    }else if (cmd == "GROW") {
+        player.Grow();
+    }else if (cmd == "TALK") {
+        player.Talk();
+    }else if (cmd == "INV") {
+        player.PrintInventory();
+    }
+
+    //Menggerakan semua animal dan mengupdate kondisinya
+    for(int i = 0; i < animals.length(); i++){
+        FarmAnimal* animal = animals.get(i);
+        if (animal->GetHungerCountdown() == -5){
+            animals.remove(animals.get(i));
+            setEntity(animal->GetX(),animal->GetY(),nullptr);
+        }else{
+            animal->ReduceHungerCountdown();
+            animal->Move();
+            animal->Eat();
+        }
+    }
+
+    //Mengubah away counter truck
     truck.TickTruck();
 }
 /**
@@ -108,9 +144,9 @@ void Game::DrawScreen(){
     for(int i = 0; i < nBaris; i++){
         for(int j = 0; j < nKolom; j++){
             if (entitymap[i][j]){
-                cout << (*(entitymap[i][j])).Render();
+                cout << entitymap[i][j]->Render();
             }else{
-                cout << (*(landmap[i][j])).Render();
+                cout << landmap[i][j]->Render();
             }
         }
         cout << endl;
@@ -132,7 +168,7 @@ Land& Game::getLand(int x, int y){
  * @return apakah posisi x, y valid
  */
 bool Game::isValidPosition(int x, int y){
-    return (x < nBaris && y < nKolom);
+    return (x >= 0 && y >= 0 && x < nBaris && y < nKolom);
 }
 /**
  * Method untuk menentukan apakah ada entity di posisi x, y
@@ -152,6 +188,17 @@ bool Game::isValidEntity(int x, int y){
 Entity& Game::getEntity(int x, int y){
     return *(entitymap[x][y]);
 }
+/**
+ * Method untuk mengubah entitymap pada posisi x,y menjadi pointer entity E.
+ * @param x posisi x entity, dimulai dari 0, harus selalu dalam ukuran map
+ * @param y posisi y entity, dimulai dari 0, harus selalu dalam ukuran map
+ * @param E pointer entity, nullptr jika tidak ada
+ * @return objek entity pada posisi x, y
+ */
+void Game::setEntity(int x, int y, Entity* E){
+    entitymap[x][y] = E;
+}
+
 bool isAdjacent(int x1, int y1, int x2, int y2){
     return ((x2 == x1+1 || x2 == x1-1) && y2 == y1) || ((y2 == y1+1 || y2 == y1-1) && x2 == x1);
 }
@@ -163,7 +210,7 @@ bool isAdjacent(int x1, int y1, int x2, int y2){
  */
 FarmAnimal& Game::getAnimal(int x, int y){
     for(int i = 0; i < animals.length(); i++){
-        if ((*(animals.get(i))).GetX() == x && (*(animals.get(i))).GetY() == y){
+        if (animals.get(i)->GetX() == x && animals.get(i)->GetY() == y){
             return *(animals.get(i));
         }
     }

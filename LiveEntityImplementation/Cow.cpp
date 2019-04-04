@@ -10,8 +10,9 @@ Cow :: Cow(int _pos_x , int _pos_y)
     {
         pos_x = _pos_x;
         pos_y = _pos_y;
-        available_milk = 0;
+        availableProduct = false;
         hunger_countdown = 5;
+        allowed_tiles = "Grassland";
     }
 
 //! Implementasi dari fungsi Render()
@@ -41,13 +42,19 @@ void Cow :: Sounds()
 
 FarmProduct Cow :: GetProduct()
     {
-        if (available_milk > 0)
+        if (availableProduct)
             {
-                return CowMilk();
+                CowMilk cm;
+                return cm;
             }
+        else
+        {
+            throw "Milk not available";
+        }
     }
 
 FarmProduct Cow :: GetKilledProduct()
     {
-        return CowMeat();
+        CowMilk cm;
+        return cm;
     }

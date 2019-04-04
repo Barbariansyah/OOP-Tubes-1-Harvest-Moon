@@ -83,6 +83,7 @@ class LinkedList{
             }
             newData[n++] = element;
             delete [] data;
+            cout << "Made it here 4" << endl;
             data = newData;
         }
         /**
@@ -95,7 +96,7 @@ class LinkedList{
                 int i,j;
                 T *newData = new T[n-1];
                 for(i = 0, j = 0; i < n; i++){
-                    if (!(data[i] == element) || found){
+                    if (!(data[i] == element) && !found){
                         newData[j++] = data[i];
                     }else{
                         found = true;

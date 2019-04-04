@@ -10,8 +10,9 @@ Goat :: Goat(int _pos_x , int _pos_y)
     {
         pos_x = _pos_x;
         pos_y = _pos_y;
-        available_milk = 0;
+        availableProduct = false;
         hunger_countdown = 5;
+        allowed_tiles = "Grassland";
     }
 
 //! Implementasi dari fungsi Render()
@@ -41,13 +42,19 @@ void Goat :: Sounds()
 
 FarmProduct Goat :: GetKilledProduct()
     {
-        return GoatMeat();
+        GoatMeat gm;
+        return gm;
     }
 
 FarmProduct Goat :: GetProduct()
     {
-        if (available_milk > 0)
+        if (availableProduct)
             {
-                return GoatMilk();
+                GoatMeat gm;
+                return gm;
             }
+        else
+        {
+            throw "Milk not available";
+        }
     }

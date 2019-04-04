@@ -31,6 +31,12 @@ class Land : public Cell{
          * @return boolean apakah terdapat grass atau tidak (bernilai true or false)
          */
         bool isGrass(); 
+
+        /**
+         * Method getter untuk mendapatkan tipe dari sebuah Land
+         * @return string yang mengindikasikan tipe Barn, Coop, atau Grassland
+         */
+        string getType();
 };
 
 #endif
