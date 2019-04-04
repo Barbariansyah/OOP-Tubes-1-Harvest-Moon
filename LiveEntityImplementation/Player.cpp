@@ -4,6 +4,7 @@ using namespace std;
 #include "../Player.h"
 #include "../FarmAnimal.h"
 #include "../Land.h"
+#include "../AllProduct.h"
 
 //! Implementasi Kelas Player /*! */
 
@@ -107,24 +108,36 @@ Digunakan untuk melakukan perpindahan pada map
 */
 void Player :: Move(string _direction)
     {
-        if ( _direction.compare("LEFT") == 0 )
-            {
-                this -> pos_x = this -> pos_x - 1;
-            }
-        else 
-        if ( _direction.compare("RIGHT") == 0 )
-            {
-                this -> pos_x = this -> pos_x + 1;
-            }
-        else
         if ( _direction.compare("UP") == 0 )
             {
-                this -> pos_y = this -> pos_y + 1;
+                if (Game::isValidPosition(pos_x-1, pos_y)){
+                    if (Game::isValidEntity(pos_x-1, pos_y))
+                        this -> pos_x = this -> pos_x - 1;
+                }
             }
-        else
+        else 
         if ( _direction.compare("DOWN") == 0 )
             {
-                this -> pos_y = this -> pos_y - 1;
+                if (Game::isValidPosition(pos_x+1, pos_y)){
+                    if (Game::isValidEntity(pos_x+1, pos_y))
+                        this -> pos_x = this -> pos_x + 1;
+                }
+            }
+        else
+        if ( _direction.compare("LEFT") == 0 )
+            {
+                if (Game::isValidPosition(pos_x, pos_y-1)){
+                    if (Game::isValidEntity(pos_x, pos_y-1))
+                        this -> pos_y = this -> pos_y - 1;
+                }
+            }
+        else
+        if ( _direction.compare("RIGHT") == 0 )
+            {
+                if (Game::isValidPosition(pos_x, pos_y+1)){
+                    if (Game::isValidEntity(pos_x, pos_y+1))
+                        this -> pos_y = this -> pos_y + 1;
+                }
             }        
     }
 
@@ -138,6 +151,7 @@ void Player :: Talk()
             {
                 FarmAnimal* f_a = &(Game :: getAnimal(pos_x+1,pos_y));
                 (*f_a).Sounds();
+                return;
             }
         catch(const char* msg)
             {
@@ -148,6 +162,7 @@ void Player :: Talk()
             {
                 FarmAnimal* f_a = &(Game :: getAnimal(pos_x,pos_y+1));
                 (*f_a).Sounds();
+                return;
             }
         catch(const char* msg)
             {
@@ -158,6 +173,7 @@ void Player :: Talk()
             {
                 FarmAnimal* f_a = &(Game :: getAnimal(pos_x,pos_y-1));
                 (*f_a).Sounds();
+                return;
             }
         catch(const char* msg)
             {
@@ -168,6 +184,7 @@ void Player :: Talk()
             {
                 FarmAnimal* f_a = &(Game :: getAnimal(pos_x-1,pos_y));
                 (*f_a).Sounds();
+                return;
             }
         catch(const char* msg)
             {
@@ -185,21 +202,174 @@ void Player :: Interact()
     {
         try
             {
-                FarmAnimal* f_a = &(Game :: getAnimal(pos_x+1, pos_y));
-                try
-                    {
-                        (*f_a).GetProduct();
-                    }
-                catch(const char* msg)
-                    {
-
-                    }
+                FarmAnimal* f_a = &(Game :: getAnimal(pos_x+1,pos_y));
+                FarmProduct fp = (*f_a).GetProduct();
+                inventory.add(&fp);
+                return;
             }
         catch(const char* msg)
             {
 
             }
         
+        try
+            {
+                FarmAnimal* f_a = &(Game :: getAnimal(pos_x,pos_y+1));
+                FarmProduct fp = (*f_a).GetProduct();
+                inventory.add(&fp);
+                return;
+            }
+        catch(const char* msg)
+            {
+
+            }
+
+        try
+            {
+                FarmAnimal* f_a = &(Game :: getAnimal(pos_x,pos_y-1));
+                FarmProduct fp = (*f_a).GetProduct();
+                inventory.add(&fp);
+                return;
+            }
+        catch(const char* msg)
+            {
+
+            }
+        
+        try
+            {
+                FarmAnimal* f_a = &(Game :: getAnimal(pos_x-1,pos_y));
+                FarmProduct fp = (*f_a).GetProduct();
+                inventory.add(&fp);
+                return;
+            }
+        catch(const char* msg)
+            {
+
+            }
+        
+        try
+            {
+                Truck* t = &(Game :: getTruck(pos_x+1,pos_y));
+                return;
+
+            }
+        catch(const char* msg)
+            {
+
+            }
+        
+        try
+            {
+                Truck* t = &(Game :: getTruck(pos_x,pos_y+1));
+                return;
+
+            }
+        catch(const char* msg)
+            {
+
+            }
+
+        try
+            {
+                Truck* t = &(Game :: getTruck(pos_x,pos_y-1));
+                return;
+
+            }
+        catch(const char* msg)
+            {
+
+            }
+
+        try
+            {
+                Truck* t = &(Game :: getTruck(pos_x-1,pos_y));
+                return;
+            }
+        catch(const char* msg)
+            {
+
+            }  
+
+        try
+            {
+                Mixer* m = &(Game :: getMixer(pos_x+1,pos_y));
+                return;
+            }
+        catch(const char* msg)
+            {
+
+            }  
+
+        try
+            {
+                Mixer* m = &(Game :: getMixer(pos_x,pos_y+1));
+                return;
+            }
+        catch(const char* msg)
+            {
+
+            }   
+
+        try
+            {
+                Mixer* m = &(Game :: getMixer(pos_x,pos_y-1));
+                return;
+            }
+        catch(const char* msg)
+            {
+
+            }   
+
+        try
+            {
+                Mixer* m = &(Game :: getMixer(pos_x-1,pos_y));
+                return;
+            }
+        catch(const char* msg)
+            {
+
+            }
+
+        try
+            {
+                Well* w = &(Game :: getWell(pos_x+1,pos_y));
+                return;
+            }
+        catch(const char* msg)
+            {
+
+            }  
+
+        try
+            {
+                Well* w = &(Game :: getWell(pos_x,pos_y+1));
+                return;
+            }
+        catch(const char* msg)
+            {
+
+            }   
+
+        try
+            {
+                Well* w = &(Game :: getWell(pos_x,pos_y-1));
+                return;
+            }
+        catch(const char* msg)
+            {
+
+            }   
+
+        try
+            {
+                Well* w = &(Game :: getWell(pos_x-1,pos_y));
+                return;
+            }
+        catch(const char* msg)
+            {
+
+            }
     }
 
 //! Implementasi dari fungsi Kill()
@@ -221,6 +391,7 @@ void Player :: Kill()
                     {
 
                     }
+                return;
             }
         catch(const char* msg)
             {
@@ -239,6 +410,7 @@ void Player :: Kill()
                     {
 
                     }
+                return;
             }
         catch(const char* msg)
             {
@@ -257,6 +429,7 @@ void Player :: Kill()
                     {
 
                     }
+                return;
             }
         catch(const char* msg)
             {
@@ -275,6 +448,7 @@ void Player :: Kill()
                     {
 
                     }
+                return;
             }
         catch(const char* msg)
             {
@@ -320,7 +494,62 @@ void Player :: Mix()
             {
                 if (BeefRolade :: validateRecipe(inventory))
                     {
+                        BeefRolade* b_r = new BeefRolade();
+                        inventory.add(b_r);
 
+                        LinkedList<Product*> l_p = BeefRolade :: getRecipe();
+
+                        for(int i = 0 ; i < l_p.length() ; i++)
+                            {
+                                inventory.remove(l_p.get(i));
+                            }
+                        
+                        
+                    }
+            }
+        else if ( x == 2)
+            {
+                if (Pancake :: validateRecipe(inventory))
+                    {
+                        Pancake* p = new Pancake();
+                        inventory.add(p);
+
+                        LinkedList<Product*> l_p = Pancake :: getRecipe();
+
+                        for(int i = 0 ; i < l_p.length() ; i++)
+                            {
+                                inventory.remove(l_p.get(i));
+                            }
+                    }
+            }
+        else if ( x == 3)
+            {
+                if (ChickenButterMilk :: validateRecipe(inventory))
+                    {
+                        ChickenButterMilk* c_bm = new ChickenButterMilk();
+                        inventory.add(c_bm);
+
+                        LinkedList<Product*> l_p = ChickenButterMilk :: getRecipe();
+
+                        for(int i = 0 ; i < l_p.length() ; i++)
+                            {
+                                inventory.remove(l_p.get(i));
+                            }
+                    }
+            }
+        else
+            {
+                if (GoatCheese :: validateRecipe(inventory))
+                    {
+                        GoatCheese* g_c = new GoatCheese();
+                        inventory.add(g_c);
+
+                        LinkedList<Product*> l_p = GoatCheese :: getRecipe();
+
+                        for(int i = 0 ; i < l_p.length() ; i++)
+                            {
+                                inventory.remove(l_p.get(i));
+                            }
                     }
             }
     }
