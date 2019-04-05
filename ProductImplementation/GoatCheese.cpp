@@ -3,11 +3,11 @@
 LinkedList<Product*> GoatCheese::recipe;
 
 void GoatCheese::initRecipe(){
-  recipe.add(new ChickenEgg());
-  recipe.add(new CowMeat());
+  recipe.add(new GoatMilk());
+  recipe.add(new GoatMilk());
 }
 
-GoatCheese::GoatCheese():SideProduct(100000,"Beef Rolade"){
+GoatCheese::GoatCheese():SideProduct(100000,"Goat Cheese"){
 }
 
 LinkedList<Product*> GoatCheese::getRecipe(){
@@ -25,7 +25,7 @@ bool GoatCheese::validateRecipe(LinkedList<Product*> inventory){
     int del;
     del = temp.findPointer(tempRecipe.get(i));
     if (del != -1){
-      temp.remove(tempRecipe.get(i));
+      temp.remove(temp.get(del));
       tempRecipe.remove(tempRecipe.get(i));
     }
     else{i++;}

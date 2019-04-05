@@ -1,0 +1,12 @@
+
+Suite: testLandSuite
+  Test: testBarn ...passed
+  Test: testCoop ...passed
+  Test: testGrassland ...passed
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites      1      1    n/a      0        0
+               tests      3      3      3      0        0
+             asserts     15     15     15      0      n/a
+
+Elapsed time =    0.000 seconds

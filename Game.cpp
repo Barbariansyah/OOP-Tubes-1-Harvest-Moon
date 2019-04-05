@@ -14,9 +14,9 @@ int Game::nBaris,Game::nKolom;
  * Menerima nama file untuk kemudian dibaca dan dimuat dalam struktur data game.
  * @param filename nama file eksternal untuk dibaca
  */
-void Game::Initialize(string filename){
-    nBaris = 10;
-    nKolom = 13;
+void Game::Initialize(string filename, int xsize, int ysize){
+    nBaris = xsize;
+    nKolom = ysize;
 
     landmap = new Land**[nBaris];
     entitymap = new Entity**[nBaris];
@@ -33,6 +33,7 @@ void Game::Initialize(string filename){
     Pancake::initRecipe();
     GoatCheese::initRecipe();
     ChickenButterMilk::initRecipe();
+    LoadGame(filename);
 }
 /**
  * Method load game yang akan dipanggil oleh konstruktor.

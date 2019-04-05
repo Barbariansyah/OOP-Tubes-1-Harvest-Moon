@@ -25,7 +25,7 @@ bool BeefRolade::validateRecipe(LinkedList<Product*> inventory){
     int del;
     del = temp.findPointer(tempRecipe.get(i));
     if (del != -1){
-      temp.remove(tempRecipe.get(i));
+      temp.remove(temp.get(del));
       tempRecipe.remove(tempRecipe.get(i));
     }
     else{i++;}

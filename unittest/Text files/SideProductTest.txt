@@ -1,0 +1,24 @@
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+Suite: Side_Product_Test
+  Test: Pancake_test ...passed
+  Test: Pancake_fail_test ...passed
+  Test: Pancake_over_test ...passed
+  Test: BeefRolade_test ...passed
+  Test: BeefRolade_fail_test ...passed
+  Test: BeefRolade_over_test ...passed
+  Test: GoatCheese_test ...passed
+  Test: GoatCheese_fail_test ...passed
+  Test: GoatCheese_over_test ...passed
+  Test: ChickenBMilk_test ...passed
+  Test: ChickenBMilk_fail_test ...passed
+  Test: ChickenBMilk_over_test ...passed
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites      1      1    n/a      0        0
+               tests     12     12     12      0        0
+             asserts     12     12     12      0      n/a
+
+Elapsed time =    0.000 seconds
+

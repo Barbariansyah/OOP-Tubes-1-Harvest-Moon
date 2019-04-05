@@ -1,0 +1,19 @@
+     CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+Suite: Player_Test
+  Test: Default Ctor Player Test ...passed
+  Test: Parameterized Ctor Player Test ...passed
+  Test: Player Name Setter Test ...passed
+  Test: Player Render Test ...passed
+  Test: Player Water Container Setter Test ...passed
+  Test: Player Water Container Setter Overcapacity Test ...passed
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites      1      1    n/a      0        0
+               tests      6      6      6      0        0
+             asserts     21     21     21      0      n/a
+
+Elapsed time =    0.000 seconds
+

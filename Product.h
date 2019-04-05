@@ -37,6 +37,11 @@ class Product{
      * Method ini mencetak produk yang tampilannya akan berbeda antara side product dengan farm product
      */
     virtual void Print() = 0;
+
+    /**
+     * Implementasi fungsi operator==
+     * Digunakan untuk membandingkan product p1 dengan p2
+     */
     friend bool operator==(const Product& p1, const Product& p2);
 
 };

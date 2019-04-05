@@ -30,7 +30,7 @@ class Game {
          * Menerima nama file untuk kemudian dibaca dan dimuat dalam struktur data game.
          * @param filename nama file eksternal untuk dibaca
          */
-        static void Initialize(string filename);
+        static void Initialize(string filename, int xsize, int ysize);
         /**
          * Method load game yang akan dipanggil oleh konstruktor.
          * Membaca kondisi permainan dan memuatnya dalam memori.
