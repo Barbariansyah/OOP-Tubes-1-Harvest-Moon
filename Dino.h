@@ -34,8 +34,8 @@ class Dino : public EggPFA {
         */
         void Sounds();
 
-        FarmProduct GetProduct();
-        FarmProduct GetKilledProduct();
+        void GetProduct();
+        void GetKilledProduct();
 
 };
 

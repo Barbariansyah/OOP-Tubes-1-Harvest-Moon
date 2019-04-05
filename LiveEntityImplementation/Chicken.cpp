@@ -2,6 +2,7 @@
 using namespace std;
 
 #include "../Chicken.h"
+#include "../Game.h"
 
 //! Konstruktor dari kelas Chicken
 /*!
@@ -40,14 +41,11 @@ void Chicken :: Sounds()
         cout << "Kukuruyukkkk :v" << endl;
     }
 
-FarmProduct Chicken :: GetProduct()
+void Chicken :: GetProduct()
     {
-        cout << "Made it here" << endl;
         if (availableProduct)
             {
-                ChickenEgg ck;
-                cout << "Made it here 2" << endl;
-                return ck;
+                Game::getPlayer().GetInventory().add(new ChickenEgg());
             }
         else
         {
@@ -55,8 +53,7 @@ FarmProduct Chicken :: GetProduct()
         }
     }
 
-FarmProduct Chicken :: GetKilledProduct()
+void Chicken :: GetKilledProduct()
     {
-        ChickenEgg ck;
-        return ck;
+        Game::getPlayer().GetInventory().add(new ChickenMeat());
     } 

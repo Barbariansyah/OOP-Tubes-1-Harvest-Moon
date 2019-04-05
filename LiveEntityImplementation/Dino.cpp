@@ -2,6 +2,7 @@
 using namespace std;
 
 #include "../Dino.h"
+#include "../Game.h"
 
 //! Konstruktor dari kelas Dino
 /*!
@@ -23,10 +24,10 @@ Digunakan untuk menampilkan Dino pada Map
 string Dino :: Render()
     {
         if(GetHungerCountdown() <= 0 && GetHungerCountdown() > -5){
-            return "ḋ";
+            return "u";
         }
         else if (GetHungerCountdown() > 0){
-            return "Ḋ";
+            return "U";
         }
     }
 
@@ -39,12 +40,11 @@ void Dino :: Sounds()
         cout << "Rawrrrr :<" << endl;
     }
 
-FarmProduct Dino :: GetProduct()
+void Dino :: GetProduct()
     {
         if (availableProduct)
             {
-                DinoEgg de; 
-                return de;
+                Game::getPlayer().GetInventory().add(new DinoEgg());
             }
         else
         {
@@ -52,7 +52,7 @@ FarmProduct Dino :: GetProduct()
         }
     }
 
-FarmProduct Dino :: GetKilledProduct()
+void Dino :: GetKilledProduct()
     {
         throw "Can't be killed";
     }

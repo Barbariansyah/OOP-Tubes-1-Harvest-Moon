@@ -2,54 +2,31 @@
 #define LINKEDLIST_H
 #include <iostream>
 
-template <class T>
-class ListEl{
-    private:
-        T data;
-        ListEl *nextEl;
-    public:
-        ListEl(T newel){
-            data = newel;
-            nextEl = nullptr;
-        }
-
-        void setNext(ListEl *_nextEl){
-            nextEl = _nextEl;
-        }
-
-        ListEl* next(){
-            return nextEl;
-        }
-
-        void setData(T _data){
-            data = _data;
-        }
-
-        T& getData(){
-            return data;
-        }
-};
+#include "Product.h"
 
 template<class T>
 class LinkedList{
     private:
         int n;
-        ListEl<T>* first;
+        T * data;
     public:
         LinkedList(){
             n = 0;
-            first = nullptr;
+            data = new T[n];
+        }
+        LinkedList(int _n){
+            n = _n;
+            data = new T[n];
         }
         LinkedList(const LinkedList<T>& LL){
             n = LL.n;
-            if (n > 0){
-                first = new ListEl<T> (LL.get(0));
-                ListEl<T>* curr = first;
-                for(int i = 1; i < n; i++){
-                    curr->setNext(new ListEl<T>(LL.get(i)));
-                    curr = curr->next();
-                }
+            data = new T[n];
+            for(int i = 0; i < n; i++){
+                data[i] = LL.data[i];
             }
+        }
+        ~LinkedList(){
+            delete [] data;
         }
         /**
          * Mengembalikan indeks dimana elemen ditemukan, -1 jika tidak ada
@@ -57,13 +34,12 @@ class LinkedList{
          * @return index elemen, -1 jika tidak ada
          */
         int find(const T& element){
-            if (n > 0){
+            if (n != 0){
                 int i = 0;
-                ListEl<T>* curr = first;
-                while( i < n-1 && !(curr->getData() == element) ){
-                    curr = curr->next();
+                while(i<n-1 && !(data[i]==element)){
+                    i++;
                 }
-                if (curr->getData() == element)
+                if (data[i] == element)
                     return i;
                 else
                     return -1;
@@ -77,11 +53,10 @@ class LinkedList{
         int findPointer(const T& element){
             if (n != 0){
                 int i = 0;
-                ListEl<T>* curr = first;
-                while(i<n-1 && !(*(curr->getData())==*element)){
-                    curr = curr->next();
+                while(i<n-1 && !(*(data[i])==*element)){
+                    i++;
                 }
-                if (*(curr->getData()) == *element)
+                if (*(data[i]) == *element)
                     return i;
                 else
                     return -1;
@@ -102,16 +77,13 @@ class LinkedList{
          * @param elemen elemen yang akan ditambahkan pada linked list
          */
         void add(T element){
-            if (n > 0){
-                ListEl<T>* curr = first;
-                for(int i = 1; i < n; i++){
-                    curr = curr->next();
-                }
-                curr->setNext(new ListEl<T>(element));
-            }else{
-                first = new ListEl<T>(element);;
+            T *newData = new T[n+1];
+            for(int i = 0; i < n; i++){
+                newData[i] = data[i];
             }
-            n++;
+            newData[n++] = element;
+            delete [] data;
+            data = newData;
         }
         /**
          * Membuang elemen dari linked list. Elemen diasumsikan unik
@@ -119,20 +91,18 @@ class LinkedList{
          */
         void remove(const T element){
             if (!isEmpty() && find(element) != -1){
-                ListEl<T>* curr = first;
-                ListEl<T>* prev = nullptr;
-                while (!(curr->getData() == element)){
-                    prev = curr;
-                    curr = curr->next();
+                bool found = false;
+                int i,j;
+                T *newData = new T[n-1];
+                for(i = 0, j = 0; i < n; i++){
+                    if (!(data[i] == element) && !found){
+                        newData[j++] = data[i];
+                    }else{
+                        found = true;
+                    }
                 }
-                if (prev == nullptr){
-                    //First element
-                    first = curr->next();
-                    delete curr;
-                }else{
-                    prev->setNext(curr->next());
-                    delete curr;
-                }
+                delete [] data;
+                data = newData;
                 n--;
             }
         }
@@ -141,14 +111,8 @@ class LinkedList{
          * @param index index dari data yang diinginkan
          * @return objek pada index ke-index
          */
-        T& get(int index) const{
-            if (index != -1 && index < n){
-                ListEl<T>* curr = first;
-                for(int i = 0; i < index; i++){
-                    curr = curr->next();
-                }
-                return curr->getData();
-            }
+        T& get(int index){
+            return data[index];
         }
         /**
          * Mengosongkan linked list
@@ -156,7 +120,9 @@ class LinkedList{
         void removeAll(){
             if (!isEmpty()){
                 n = 0;
-                first = nullptr;
+                T *newData = new T[n];
+                delete [] data;
+                data = newData;
             }
         }
 };

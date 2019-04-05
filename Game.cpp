@@ -6,7 +6,7 @@ LinkedList<FarmAnimal*> Game::animals;
 Truck Game::truck(0,0);
 Well Game::well(0,0);
 Mixer Game::mixer(0,0);
-Player Game::player("",5,0);
+Player Game::player;
 int Game::nBaris,Game::nKolom; 
 
 /**
@@ -16,12 +16,7 @@ int Game::nBaris,Game::nKolom;
  */
 void Game::Initialize(string filename){
     nBaris = 10;
-    nKolom = 10;
-
-    truck = Truck(9,9);
-    well = Well(9,8);
-    mixer = Mixer(9,7);
-    player = Player("Dika",5,0);
+    nKolom = 13;
 
     landmap = new Land**[nBaris];
     entitymap = new Entity**[nBaris];
@@ -33,15 +28,6 @@ void Game::Initialize(string filename){
             entitymap[i][j] = nullptr;
         }
     }
-
-    Chicken* ck = new Chicken(0,0);
-
-    entitymap[9][9] = &truck;
-    entitymap[9][8] = &well;
-    entitymap[9][7] = &mixer;
-    entitymap[4][4] = &player;
-    entitymap[0][0] = ck;
-    animals.add(ck);
 }
 /**
  * Method load game yang akan dipanggil oleh konstruktor.
@@ -57,31 +43,72 @@ void Game::LoadGame(string filename){
     int i = 0;
     while (getline(infile,line)){
         for(int j = 0; j < line.length(); j++){
-            switch (line[j])
-            {
-                case '-':
-                    landmap[i][j] = new Grassland();
-                    break;
-                case 'O':
-                    landmap[i][j] = new Coop();
-                    break;
-                case 'X':
-                    landmap[i][j] = new Barn();
-                    break;
-                case '#':
-                    landmap[i][j] = new Grassland();
-                    landmap[i][j]->GrowGrass();
-                    break;
-                case '*':
-                    landmap[i][j] = new Coop();
-                    landmap[i][j]->GrowGrass();
-                    break;
-                case '@':
-                    landmap[i][j] = new Barn();
-                    landmap[i][j]->GrowGrass();
-                    break;
-                default:
-                    break;
+            if (line[j] == '-'){
+                landmap[i][j] = new Grassland();
+                landmap[i][j]->GrowGrass();
+            }
+            else if (line[j] == 'O'){
+                landmap[i][j] = new Coop();
+                landmap[i][j]->GrowGrass();
+            }
+            else if (line[j] == 'X'){
+                landmap[i][j] = new Barn();
+                landmap[i][j]->GrowGrass();
+            }
+            else if (line[j] == '#'){
+                landmap[i][j] = new Grassland();
+                landmap[i][j]->GrowGrass();
+            }
+            else if (line[j] == '*'){
+                landmap[i][j] = new Coop();
+                landmap[i][j]->GrowGrass();
+            }
+            else if (line[j] == '@'){
+                landmap[i][j] = new Barn();
+                landmap[i][j]->GrowGrass();
+            }
+            else if (line[j] == 'P'){
+                player = Player("No Name",5,0,i,j);
+                entitymap[i][j] = &player;
+            }
+            else if (line[j] == 'M'){
+                mixer = Mixer(i,j);
+                entitymap[i][j] = &mixer;
+            }
+            else if (line[j] == 'W'){
+                well = Well(i,j);
+                entitymap[i][j] = &well;
+            }
+            else if (line[j] == 'T'){
+                truck = Truck(i,j);
+                entitymap[i][j] = &truck;
+            }
+            else if (line[j] == 'C'){
+                animals.add(new Chicken(i,j));
+                landmap[i][j] = new Coop();
+                entitymap[i][j] = animals.get(animals.length()-1);
+            }
+            else if (line[j] == 'S'){
+                animals.add(new Cow(i,j));
+                landmap[i][j] = new Grassland();
+                entitymap[i][j] = animals.get(animals.length()-1);
+            }
+            else if (line[j] =='U'){
+                animals.add(new Dino(i,j));
+                landmap[i][j] = new Coop();
+                entitymap[i][j] = animals.get(animals.length()-1);
+            }else if (line[j] == 'D'){
+                animals.add(new Duck(i,j));
+                landmap[i][j] = new Coop();
+                entitymap[i][j] = animals.get(animals.length()-1);
+            }else if (line[j] == 'G'){
+                animals.add(new Goat(i,j));
+                landmap[i][j] = new Grassland();
+                entitymap[i][j] = animals.get(animals.length()-1);
+            }else if (line[j] == 'R'){
+                animals.add(new Rabbit(i,j));
+                landmap[i][j] = new Barn();
+                entitymap[i][j] = animals.get(animals.length()-1);
             }
         }
         i++;
@@ -115,15 +142,19 @@ void Game::Tick(){
         player.Grow();
     }else if (cmd == "TALK") {
         player.Talk();
-    }else if (cmd == "INV") {
-        player.PrintInventory();
+    }else if (cmd == "STATUS") {
+        player.PrintStatus();
+    }else if (cmd == "KILL") {
+        player.Kill();
+    }else if (cmd == "MIX") {
+        player.Mix();
     }
 
     //Menggerakan semua animal dan mengupdate kondisinya
     for(int i = 0; i < animals.length(); i++){
         FarmAnimal* animal = animals.get(i);
-        if (animal->GetHungerCountdown() == -5){
-            animals.remove(animals.get(i));
+        if (animal->GetHungerCountdown() <= -5){
+            animals.remove(animal);
             setEntity(animal->GetX(),animal->GetY(),nullptr);
         }else{
             animal->ReduceHungerCountdown();
@@ -251,4 +282,11 @@ Mixer& Game::getMixer(int x, int y){
         return mixer;
     else
         throw "Mixer is not nearby";
+}
+/**
+ * Method untuk mengakses instans player
+ * @return objek player
+ */
+Player& Game::getPlayer(){
+    return player;
 }

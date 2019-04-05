@@ -33,8 +33,8 @@ class Chicken : public MeatPFA, public EggPFA {
         */
         void Sounds();
 
-        FarmProduct GetProduct();
-        FarmProduct GetKilledProduct();
+        void GetProduct();
+        void GetKilledProduct();
 
 };
 

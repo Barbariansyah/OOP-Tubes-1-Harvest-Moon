@@ -2,7 +2,10 @@
 
 int main(){
     Game::Initialize("");
-    Game::LoadGame("test.txt");
+    Game::LoadGame("map.txt");
+    Game::getPlayer().GetInventory().add(new CowMeat());
+    Game::getPlayer().GetInventory().add(new CowMeat());
+    Game::getPlayer().GetInventory().add(new ChickenEgg());
     while (true){
         Game::Tick();
         Game::DrawScreen();

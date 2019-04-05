@@ -34,8 +34,8 @@ class Rabbit : public MeatPFA {
         */
         void Sounds();
         
-        FarmProduct GetProduct();
-        FarmProduct GetKilledProduct();
+        void GetProduct();
+        void GetKilledProduct();
 
 };
 

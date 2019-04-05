@@ -18,13 +18,11 @@ Inisialisasi money = 0
         this -> name = "Player";
         this -> water_container = 0;
         this -> money = 0;
-        LinkedList<Product*> inventory;
-        inventory.add(new ChickenEgg());
         pos_x = 0;
         pos_y = 0;
     }
 
-Player :: Player(string _name , int _water_container , double _money)
+Player :: Player(string _name , int _water_container , double _money, int x, int y)
 //! Konstruktor user-defined Player()
 /*!
 Digunakan untuk membuat objek dari kelas ini
@@ -36,10 +34,8 @@ Inisialisasi money = _money
         this -> name = _name;
         this -> water_container = _water_container;
         this -> money = _money;
-        LinkedList<Product*> inventory;
-        inventory.add(new ChickenEgg());
-        pos_x = 4;
-        pos_y = 4;
+        pos_x = x;
+        pos_y = y;
     }
 
 void Player :: SetName(string _name)
@@ -219,52 +215,49 @@ untuk melakukan interaksi dengan Facility
 */
 void Player :: Interact()
     {
+        bool notfound = false;
         try
             {
                 FarmAnimal* f_a = &(Game :: getAnimal(pos_x+1,pos_y));
-                FarmProduct fp = f_a->GetProduct();
-                inventory.add(&fp);
+                f_a->GetProduct();
                 return;
             }
         catch(const char* msg)
             {
-
+                notfound = true;
             }
         
         try
             {
                 FarmAnimal* f_a = &(Game :: getAnimal(pos_x,pos_y+1));
-                FarmProduct fp = f_a->GetProduct();
-                inventory.add(&fp);
+                f_a->GetProduct();
                 return;
             }
         catch(const char* msg)
             {
-
+                notfound = true;
             }
 
         try
             {
                 FarmAnimal* f_a = &(Game :: getAnimal(pos_x,pos_y-1));
-                FarmProduct fp = f_a->GetProduct();
-                inventory.add(&fp);
+                f_a->GetProduct();
                 return;
             }
         catch(const char* msg)
             {
-
+                notfound = true;
             }
         
         try
             {
                 FarmAnimal* f_a = &(Game :: getAnimal(pos_x-1,pos_y));
-                FarmProduct fp = f_a->GetProduct();
-                inventory.add(&fp);
+                f_a->GetProduct();
                 return;
             }
         catch(const char* msg)
             {
-
+                notfound = true;
             }
         
         try
@@ -272,8 +265,7 @@ void Player :: Interact()
                 Truck t = Game :: getTruck(pos_x,pos_y);
                 t.SetAwayCounter(5);
                 double selling = 0;
-                int i = 0;
-                while (!inventory.isEmpty()){
+                for(int i = 0; i < inventory.length(); i++){
                     selling += inventory.get(i)->getPrice();
                 }
                 money += selling;
@@ -282,7 +274,7 @@ void Player :: Interact()
             }
         catch(const char* msg)
             {
-
+                notfound = true;
             }
 
         try
@@ -293,8 +285,11 @@ void Player :: Interact()
             }
         catch(const char* msg)
             {
-
+                notfound = true;
             }  
+        
+        if (notfound)
+            cout << "Nothing to interact to :(" << endl;
     }
 
 //! Implementasi dari fungsi Kill()
@@ -304,80 +299,59 @@ TBD!
 */
 void Player :: Kill()
     {
+        bool notfound;
+
         try
             {
                 FarmAnimal* f_a = &(Game :: getAnimal(pos_x+1,pos_y));
-                try
-                    {
-                        FarmProduct fp = (*f_a).GetKilledProduct();
-                        inventory.add(&fp);
-                    }
-                catch(const char* msg)
-                    {
-
-                    }
+                f_a -> GetKilledProduct();
+                f_a -> SetKilled();
                 return;
             }
         catch(const char* msg)
             {
-
+                notfound = true;
             }
         
         try
             {
                 FarmAnimal* f_a = &(Game :: getAnimal(pos_x,pos_y+1));
-                try
-                    {
-                        FarmProduct fp = (*f_a).GetKilledProduct();
-                        inventory.add(&fp);
-                    }
-                catch(const char* msg)
-                    {
-
-                    }
+                f_a -> GetKilledProduct();
+                f_a -> SetKilled();
                 return;
             }
         catch(const char* msg)
             {
-
+                notfound = true;
             }
 
         try
             {
                 FarmAnimal* f_a = &(Game :: getAnimal(pos_x,pos_y-1));
-                try
-                    {
-                        FarmProduct fp = (*f_a).GetKilledProduct();
-                        inventory.add(&fp);
-                    }
-                catch(const char* msg)
-                    {
-
-                    }
+                f_a -> GetKilledProduct();
+                f_a -> SetKilled();
                 return;
             }
         catch(const char* msg)
             {
-
+                notfound = true;
             }
         
         try
             {
                 FarmAnimal* f_a = &(Game :: getAnimal(pos_x-1,pos_y));
-                try
-                    {
-                        FarmProduct fp = (*f_a).GetKilledProduct();
-                        inventory.add(&fp);
-                    }
-                catch(const char* msg)
-                    {
-
-                    }
+                f_a -> GetKilledProduct();
+                f_a -> SetKilled();
                 return;
             }
         catch(const char* msg)
             {
-
+                notfound = true;
+            }
+        
+        if (notfound)
+            {
+                cout << "There is nothing to kill :(" << endl;
             }
     }
 
@@ -487,7 +461,7 @@ void Player :: Mix()
 
 void Player :: PrintInventory()
     {
-        if (inventory.length() == 0){
+        if (inventory.isEmpty()){
             cout << "Inventory Empty" << endl;
         }else{
             for (int i = 0 ; i < inventory.length() ; i++)
@@ -496,3 +470,14 @@ void Player :: PrintInventory()
                 }
         }
     }
+
+void Player :: PrintStatus()
+    {
+        cout << "Water Container : " << water_container << endl;
+        cout << "Money : " << money << endl;
+        PrintInventory();        
+    }
+
+LinkedList<Product*>& Player::GetInventory(){
+    return inventory;
+}

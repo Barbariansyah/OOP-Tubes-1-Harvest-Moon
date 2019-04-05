@@ -2,6 +2,7 @@
 using namespace std;
 
 #include "../Duck.h"
+#include "../Game.h"
 
 //! Konstruktor dari kelas duck
 /*!
@@ -41,12 +42,11 @@ void Duck :: Sounds()
         cout << "Wkwkwkwkwk :D" << endl;
     }
 
-FarmProduct Duck :: GetProduct()
+void Duck :: GetProduct()
     {
         if (availableProduct)
             {
-                DuckEgg de;
-                return de;
+                Game::getPlayer().GetInventory().add(new DuckEgg());
             }
         else
         {
@@ -54,8 +54,7 @@ FarmProduct Duck :: GetProduct()
         }
     }
 
-FarmProduct Duck :: GetKilledProduct()
+void Duck :: GetKilledProduct()
     {
-        DuckEgg de;
-        return de;
+        Game :: getPlayer().GetInventory().add(new DuckMeat());
     }

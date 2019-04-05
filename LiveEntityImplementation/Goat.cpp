@@ -2,6 +2,7 @@
 using namespace std;
 
 #include "../Goat.h"
+#include "../Game.h"
 
 //! Konstruktor dari kelas Goat
 /*!
@@ -40,18 +41,16 @@ void Goat :: Sounds()
         cout << "Baaaaaaaa :9" << endl;
     }
 
-FarmProduct Goat :: GetKilledProduct()
+void Goat :: GetKilledProduct()
     {
-        GoatMeat gm;
-        return gm;
+        Game::getPlayer().GetInventory().add(new GoatMeat());
     }
 
-FarmProduct Goat :: GetProduct()
+void Goat :: GetProduct()
     {
         if (availableProduct)
             {
-                GoatMeat gm;
-                return gm;
+                Game::getPlayer().GetInventory().add(new GoatMilk());
             }
         else
         {
