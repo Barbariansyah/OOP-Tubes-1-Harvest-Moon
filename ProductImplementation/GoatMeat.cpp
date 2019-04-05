@@ -1,3 +1,3 @@
 #include "../GoatMeat.h"
 
-GoatMeat::GoatMeat():FarmProduct(320000, "Goat Meat"){};
+GoatMeat::GoatMeat():FarmProduct(60000, "Goat Meat"){};

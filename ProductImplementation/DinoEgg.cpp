@@ -1,3 +1,3 @@
 #include "../DinoEgg.h"
 
-DinoEgg::DinoEgg():FarmProduct(2000000, "Dino Egg"){};
+DinoEgg::DinoEgg():FarmProduct(500000, "Dino Egg"){};
