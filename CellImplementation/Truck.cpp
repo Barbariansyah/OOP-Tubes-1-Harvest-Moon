@@ -22,3 +22,7 @@ void Truck :: SetAwayCounter(int val){
 string Truck :: Render(){
     return "T";
 }
+
+int Truck :: getAwayCounter(){
+    return AwayCounter;
+}

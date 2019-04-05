@@ -34,7 +34,16 @@ class Dino : public EggPFA {
         */
         void Sounds();
 
+        //! Implementasi dari fungsi getProduct()
+        /*!
+        Getter untuk mendapatkan product dari kelas Dino, berupa DinoEgg
+        */
         void GetProduct();
+
+        //! Implementasi dari fungsi getKilledProduct()
+        /*!
+        Getter untuk mendapatkan product dari kelas Dino, akan menghasilkan throws error karena dino tidak bisa dibunuh
+        */
         void GetKilledProduct();
 
 };

@@ -10,10 +10,10 @@ Grassland :: Grassland(){
 
 string Grassland :: Render(){
     if(isGrass()){
-        return "#";
+        return GREEN+"#"+NONE;
     }
     else{
-        return "-";
+        return GREEN+"-"+NONE;
     }
      
 }

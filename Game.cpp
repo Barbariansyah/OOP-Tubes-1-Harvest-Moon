@@ -28,6 +28,11 @@ void Game::Initialize(string filename){
             entitymap[i][j] = nullptr;
         }
     }
+
+    BeefRolade::initRecipe();
+    Pancake::initRecipe();
+    GoatCheese::initRecipe();
+    ChickenButterMilk::initRecipe();
 }
 /**
  * Method load game yang akan dipanggil oleh konstruktor.
@@ -45,15 +50,12 @@ void Game::LoadGame(string filename){
         for(int j = 0; j < line.length(); j++){
             if (line[j] == '-'){
                 landmap[i][j] = new Grassland();
-                landmap[i][j]->GrowGrass();
             }
             else if (line[j] == 'O'){
                 landmap[i][j] = new Coop();
-                landmap[i][j]->GrowGrass();
             }
             else if (line[j] == 'X'){
                 landmap[i][j] = new Barn();
-                landmap[i][j]->GrowGrass();
             }
             else if (line[j] == '#'){
                 landmap[i][j] = new Grassland();
@@ -179,6 +181,7 @@ void Game::DrawScreen(){
             }else{
                 cout << landmap[i][j]->Render();
             }
+            cout << " ";
         }
         cout << endl;
     }

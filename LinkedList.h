@@ -62,6 +62,7 @@ class LinkedList{
                 ListEl<T>* curr = first;
                 while( i < n-1 && !(curr->getData() == element) ){
                     curr = curr->next();
+                    i++;
                 }
                 if (curr->getData() == element)
                     return i;
@@ -80,6 +81,7 @@ class LinkedList{
                 ListEl<T>* curr = first;
                 while(i<n-1 && !(*(curr->getData())==*element)){
                     curr = curr->next();
+                    i++;
                 }
                 if (*(curr->getData()) == *element)
                     return i;
@@ -114,10 +116,11 @@ class LinkedList{
             n++;
         }
         /**
-         * Membuang elemen dari linked list. Elemen diasumsikan unik
+         * Membuang elemen dari linked list. 
+         * Jika dua elemen yang identik, maka hanya element pertama yang dihapus
          * @param elemen yang akan dibuang dari linked list
          */
-        void remove(const T element){
+        void remove(const T& element){
             if (!isEmpty() && find(element) != -1){
                 ListEl<T>* curr = first;
                 ListEl<T>* prev = nullptr;
@@ -128,10 +131,8 @@ class LinkedList{
                 if (prev == nullptr){
                     //First element
                     first = curr->next();
-                    delete curr;
                 }else{
                     prev->setNext(curr->next());
-                    delete curr;
                 }
                 n--;
             }

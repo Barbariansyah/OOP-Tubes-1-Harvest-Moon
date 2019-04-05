@@ -34,7 +34,16 @@ class Rabbit : public MeatPFA {
         */
         void Sounds();
         
+        //! Implementasi dari fungsi getProduct()
+        /*!
+        Getter untuk mendapatkan product dari kelas Rabbit, akan menghasilkan throws error karena rabbit tidak memiliki product
+        */
         void GetProduct();
+
+        //! Implementasi dari fungsi getKilledProduct()
+        /*!
+        Getter untuk mendapatkan produk hasil kill dari kelas Rabbit, berupa RabbitMeat
+        */
         void GetKilledProduct();
 
 };

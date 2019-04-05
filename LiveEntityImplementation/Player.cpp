@@ -219,7 +219,14 @@ void Player :: Interact()
         try
             {
                 FarmAnimal* f_a = &(Game :: getAnimal(pos_x+1,pos_y));
-                f_a->GetProduct();
+                if ( inventory.length() < 7 )
+                    {
+                        f_a->GetProduct();
+                    }
+                else
+                    {
+                        cout << "Inventory is Full" << endl;
+                    }
                 return;
             }
         catch(const char* msg)
@@ -230,7 +237,14 @@ void Player :: Interact()
         try
             {
                 FarmAnimal* f_a = &(Game :: getAnimal(pos_x,pos_y+1));
-                f_a->GetProduct();
+                if ( inventory.length() < 7 )
+                    {
+                        f_a->GetProduct();
+                    }
+                else
+                    {
+                        cout << "Inventory is Full" << endl;
+                    }
                 return;
             }
         catch(const char* msg)
@@ -241,7 +255,14 @@ void Player :: Interact()
         try
             {
                 FarmAnimal* f_a = &(Game :: getAnimal(pos_x,pos_y-1));
-                f_a->GetProduct();
+                if ( inventory.length() < 7 )
+                    {
+                        f_a->GetProduct();
+                    }
+                else
+                    {
+                        cout << "Inventory is Full" << endl;
+                    }
                 return;
             }
         catch(const char* msg)
@@ -252,7 +273,14 @@ void Player :: Interact()
         try
             {
                 FarmAnimal* f_a = &(Game :: getAnimal(pos_x-1,pos_y));
-                f_a->GetProduct();
+                if ( inventory.length() < 7 )
+                    {
+                        f_a->GetProduct();
+                    }
+                else
+                    {
+                        cout << "Inventory is Full" << endl;
+                    }
                 return;
             }
         catch(const char* msg)
@@ -304,8 +332,15 @@ void Player :: Kill()
         try
             {
                 FarmAnimal* f_a = &(Game :: getAnimal(pos_x+1,pos_y));
-                f_a -> GetKilledProduct();
-                f_a -> SetKilled();
+                if (inventory.length() > 7 )
+                    {
+                        f_a -> GetKilledProduct();
+                        f_a -> SetKilled();
+                    }
+                else
+                    {
+                        cout << "Inventory is Full" << endl;
+                    }
                 return;
             }
         catch(const char* msg)
@@ -316,8 +351,15 @@ void Player :: Kill()
         try
             {
                 FarmAnimal* f_a = &(Game :: getAnimal(pos_x,pos_y+1));
-                f_a -> GetKilledProduct();
-                f_a -> SetKilled();
+                if (inventory.length() > 7 )
+                    {
+                        f_a -> GetKilledProduct();
+                        f_a -> SetKilled();
+                    }
+                else
+                    {
+                        cout << "Inventory is Full" << endl;
+                    }
                 return;
             }
         catch(const char* msg)
@@ -328,8 +370,15 @@ void Player :: Kill()
         try
             {
                 FarmAnimal* f_a = &(Game :: getAnimal(pos_x,pos_y-1));
-                f_a -> GetKilledProduct();
-                f_a -> SetKilled();
+                if (inventory.length() > 7 )
+                    {
+                        f_a -> GetKilledProduct();
+                        f_a -> SetKilled();
+                    }
+                else
+                    {
+                        cout << "Inventory is Full" << endl;
+                    }
                 return;
             }
         catch(const char* msg)
@@ -340,8 +389,15 @@ void Player :: Kill()
         try
             {
                 FarmAnimal* f_a = &(Game :: getAnimal(pos_x-1,pos_y));
-                f_a -> GetKilledProduct();
-                f_a -> SetKilled();
+                if (inventory.length() > 7 )
+                    {
+                        f_a -> GetKilledProduct();
+                        f_a -> SetKilled();
+                    }
+                else
+                    {
+                        cout << "Inventory is Full" << endl;
+                    }
                 return;
             }
         catch(const char* msg)
@@ -403,10 +459,8 @@ void Player :: Mix()
 
                             for(int i = 0 ; i < l_p.length() ; i++)
                                 {
-                                    inventory.remove(l_p.get(i));
+                                    inventory.remove(inventory.get(inventory.findPointer(l_p.get(i))));
                                 }
-                            
-                            
                         }
                 }
             else if ( x == 2)
@@ -420,7 +474,7 @@ void Player :: Mix()
 
                             for(int i = 0 ; i < l_p.length() ; i++)
                                 {
-                                    inventory.remove(l_p.get(i));
+                                    inventory.remove(inventory.get(inventory.findPointer(l_p.get(i))));
                                 }
                         }
                 }
@@ -435,7 +489,7 @@ void Player :: Mix()
 
                             for(int i = 0 ; i < l_p.length() ; i++)
                                 {
-                                    inventory.remove(l_p.get(i));
+                                    inventory.remove(inventory.get(inventory.findPointer(l_p.get(i))));
                                 }
                         }
                 }
@@ -450,7 +504,7 @@ void Player :: Mix()
 
                             for(int i = 0 ; i < l_p.length() ; i++)
                                 {
-                                    inventory.remove(l_p.get(i));
+                                    inventory.remove(inventory.get(inventory.findPointer(l_p.get(i))));
                                 }
                         }
                 }

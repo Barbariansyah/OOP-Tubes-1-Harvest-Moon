@@ -35,7 +35,16 @@ class Goat : public MilkPFA , public MeatPFA {
         */
         void Sounds();
 
+        //! Implementasi dari fungsi getProduct()
+        /*!
+        Getter untuk mendapatkan product dari kelas Goat, berupa GoatMilk
+        */
         void GetProduct();
+
+        //! Implementasi dari fungsi getKilledProduct()
+        /*!
+        Getter untuk mendapatkan produk hasil kill dari kelas Goat, berupa GoatMeat
+        */
         void GetKilledProduct();
 
 };

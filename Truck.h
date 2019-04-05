@@ -42,6 +42,12 @@ class Truck : public Facility{
          * @return karakter serta kode warna yang sesuai dengan Truck.
          */
         string Render();
+
+        /**
+         * Implementasi fungsi render dari kelas renderer.
+         * @return karakter serta kode warna yang sesuai dengan Truck.
+         */
+        int getAwayCounter();
 };
 
 #endif

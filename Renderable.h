@@ -13,6 +13,12 @@ using namespace std;
 class Renderable {
 
     protected :
+        string GREEN = "\033[92m";
+        string BLUE = "\033[94m";
+        string RED = "\033[91m";
+        string BOLD = "\033[1m";
+        string NONE = "\033[0m";
+        string YELLOW = "\033[93m";
 
     public :
 

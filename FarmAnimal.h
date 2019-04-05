@@ -62,13 +62,16 @@ class FarmAnimal : public LiveEntity {
         virtual void GetProduct() = 0;
 
         
-        //! Fungsi Getter getKilledProduct()
+        //! Fungsi Getter GetKilledProduct()
         /*!
         Getter untuk mendapatkan product dari hewan yang dibunuh
-        @return product dari hewan yang dibunuh
         */
         virtual void GetKilledProduct() = 0;
 
+        //! Fungsi setter SetKilled()
+        /*!
+        Setter untuk membunuh hewan yang dilakukan proses KILL, menghilangkan hewan dari permainan
+        */
         void SetKilled();
 
 };

@@ -35,7 +35,16 @@ class Duck : public EggPFA , public MeatPFA {
         */
         void Sounds();
 
+        //! Implementasi dari fungsi getProduct()
+        /*!
+        Getter untuk mendapatkan product dari kelas Duck, berupa DuckEgg
+        */
         void GetProduct();
+
+        //! Implementasi dari fungsi getKilledProduct()
+        /*!
+        Getter untuk mendapatkan produk hasil kill dari kelas Duck, berupa DuckMeat
+        */
         void GetKilledProduct();
 
 };
