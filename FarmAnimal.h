@@ -59,7 +59,7 @@ class FarmAnimal : public LiveEntity {
         Getter untuk mendapatkan product dari hewan yang tidak dibunuh
         @return product dari tiap hewan
         */
-        virtual FarmProduct GetProduct() = 0;
+        virtual void GetProduct() = 0;
 
         
         //! Fungsi Getter getKilledProduct()
@@ -67,7 +67,9 @@ class FarmAnimal : public LiveEntity {
         Getter untuk mendapatkan product dari hewan yang dibunuh
         @return product dari hewan yang dibunuh
         */
-        virtual FarmProduct GetKilledProduct() = 0;
+        virtual void GetKilledProduct() = 0;
+
+        void SetKilled();
 
 };
 

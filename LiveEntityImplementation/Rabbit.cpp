@@ -2,6 +2,7 @@
 using namespace std;
 
 #include "../Rabbit.h"
+#include "../Game.h"
 
 //! Konstruktor dari kelas Rabbit
 /*!
@@ -39,13 +40,12 @@ void Rabbit :: Sounds()
         cout << "Chill :3" << endl;
     }
 
-FarmProduct Rabbit :: GetKilledProduct()
+void Rabbit :: GetKilledProduct()
     {
-        RabbitMeat rm;
-        return rm;
+        Game::getPlayer().GetInventory().add(new RabbitMeat());
     }
 
-FarmProduct Rabbit :: GetProduct()
+void Rabbit :: GetProduct()
     {
         throw "Can't be interracted";
     }

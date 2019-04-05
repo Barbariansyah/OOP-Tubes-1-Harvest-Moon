@@ -118,6 +118,11 @@ class Game {
          * @return objek mixer pada jika berada di dekat x,y. Null jika tidak berada di dekat x,y
          */
         static Mixer& getMixer(int x, int y);
+        /**
+         * Method untuk mengakses instans player
+         * @return objek player
+         */
+        static Player& getPlayer();
 };
 
 #endif

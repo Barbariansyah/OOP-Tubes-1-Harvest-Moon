@@ -69,3 +69,7 @@ void FarmAnimal :: Move()
 
         Game::setEntity(pos_x,pos_y,this);
     }
+
+void FarmAnimal :: SetKilled(){
+    hunger_countdown = -99;
+}

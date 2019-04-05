@@ -2,6 +2,7 @@
 using namespace std;
 
 #include "../Cow.h"
+#include "../Game.h"
 
 //! Konstruktor dari kelas cow
 /*!
@@ -26,7 +27,7 @@ string Cow :: Render()
             return "ċ";
         }
         else if (GetHungerCountdown() > 0){
-            return "Č";
+            return "S";
         }
     }
 
@@ -40,12 +41,11 @@ void Cow :: Sounds()
         cout << "Moooooo :o" << endl;
     }
 
-FarmProduct Cow :: GetProduct()
+void Cow :: GetProduct()
     {
         if (availableProduct)
             {
-                CowMilk cm;
-                return cm;
+                Game::getPlayer().GetInventory().add(new CowMilk());
             }
         else
         {
@@ -53,8 +53,7 @@ FarmProduct Cow :: GetProduct()
         }
     }
 
-FarmProduct Cow :: GetKilledProduct()
+void Cow :: GetKilledProduct()
     {
-        CowMilk cm;
-        return cm;
+        Game::getPlayer().GetInventory().add(new CowMeat());
     }

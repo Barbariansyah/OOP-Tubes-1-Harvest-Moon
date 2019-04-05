@@ -40,7 +40,7 @@ class Player : public LiveEntity {
         @param _water_container container air awal
         @param _money nilai awal uang
         */
-        Player(string _name , int _water_container , double _money);
+        Player(string _name , int _water_container , double _money, int x, int y);
 
         //! Fungsi setter nama
         /*!
@@ -124,7 +124,10 @@ class Player : public LiveEntity {
         void Mix();
 
         void PrintInventory();
+        
+        void PrintStatus();
 
+        LinkedList<Product*>& GetInventory();
 };
 
 #endif
