@@ -83,13 +83,11 @@ class Player : public LiveEntity {
         //! Implementasi dari fungsi Move()
         /*!
         Digunakan untuk melakukan perpindahan pada map 
-        TBD!
         */
         void Move();
         //! Implementasi dari fungsi Talk()
         /*!
         Digunakan untuk melakukan interaksi dengan animal
-        TBD!
         */
         void Talk();
 
@@ -98,35 +96,45 @@ class Player : public LiveEntity {
         Fungsi interact(), digunakan untuk mengambil product dari Milk Producing Farm Animal dan Egg Producing Farm Animal
         ATAU 
         untuk melakukan interaksi dengan Facility
-        TBD!
         */
         void Interact();
 
         //! Implementasi dari fungsi Kill()
         /*!
         Digunakan untuk membunuh animal dan mendapatkan dagingnya
-        TBD!
         */
         void Kill();
         
         //! Implementasi dari fungsi Grow()
         /*!
         Digunakan untuk menumbuhkan rumput pada cell
-        TBD!
         */
         void Grow();
 
         //! Implementasi dari fungsi Mix()
         /*!
         Digunakan untuk membuat side product dari farm product
-        TBD!
         */
         void Mix();
 
-        void PrintInventory();
+        //! Implementasi dari fungsi PrintInventory()
+        /*!
+        Digunakan untuk mengeluarkan daftar isi dari inventory yang dimiliki player
+        */
+        void PrintInventory(); 
         
+        //! Implementasi dari fungsi PrintStatus()
+        /*!
+        Digunakan untuk mengeluarkan status dari player
+        Berisi inventory, jumlah uang, dan jumlah water_container yang dimiliki
+        */
         void PrintStatus();
 
+        //! Implementasi dari fungsi getter GetInventory()
+        /*!
+        Digunakan untuk mendapatkan inventory dari pengguna
+        @return inventory
+        */
         LinkedList<Product*>& GetInventory();
 };
 

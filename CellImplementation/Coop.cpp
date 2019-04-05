@@ -10,10 +10,10 @@ Coop :: Coop(){
 
 string Coop :: Render(){
     if(isGrass()){
-        return "*";
+        return YELLOW+"*"+NONE;
     }
     else{
-        return "O";
+        return YELLOW+"O"+NONE;
     }
     
-}
+} 

@@ -34,3 +34,34 @@ int main(){
 
     CU_basic_run_tests();
 }
+
+void testCoop() {
+  
+  // Check if first param matches with second[2]
+  Coop c1;
+  Coop c2;
+  Coop c3;
+
+  CU_ASSERT_EQUAL(c1.getType(), "Grassland");
+  CU_ASSERT_EQUAL(c2.getType(), "Grassland");
+  CU_ASSERT_EQUAL(c3.getType(), "Grassland");
+  CU_ASSERT_EQUAL(c1.getType(), "Coop");
+  CU_ASSERT_EQUAL(c2.getType(), "Barn");
+
+  c1.GrowGrass();
+  c2.GrowGrass();
+
+  CU_ASSERT_EQUAL(c1.Render(), "-");
+  CU_ASSERT_EQUAL(c1.Render(), "#");
+  CU_ASSERT_EQUAL(c2.Render(), "-");
+  CU_ASSERT_EQUAL(c2.Render(), "#");
+
+  c2.RemoveGrass();
+  CU_ASSERT_EQUAL(c2.Render(), "-");
+  CU_ASSERT_EQUAL(c2.Render(), "#");
+
+  
+  CU_ASSERT_EQUAL(c3.Render(), "-");
+  CU_ASSERT_EQUAL(c3.Render(), "#");
+
+}

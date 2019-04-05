@@ -10,9 +10,9 @@ Barn :: Barn(){
 
 string Barn :: Render(){
     if(this->isGrass()){
-        return "@";
+        return RED+"@"+NONE;
     }
     else{
-        return "X";   
+        return RED+"X"+NONE;   
     } 
 }
